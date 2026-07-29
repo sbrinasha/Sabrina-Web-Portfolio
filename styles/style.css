@@ -626,6 +626,29 @@ header {
     font-size: 0.8rem;
 }
  
+.badge-card {
+    width: 320px;
+}
+ 
+.badge-card .badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: #FFFFFF;
+    padding: 20px 16px;
+    aspect-ratio: 4 / 3;
+    border-bottom: 1px solid var(--border);
+}
+ 
+.badge-card .badge-row img {
+    width: 30%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-bottom: none;
+}
+ 
 /* --- Projects Section --- */
 .section-header {
     display: flex;
@@ -675,10 +698,22 @@ header {
     justify-content: center;
     background: linear-gradient(135deg, var(--primary), var(--accent));
 }
-
+ 
 .project-img.no-photo > i {
     font-size: 4rem;
     color: rgba(255, 255, 255, 0.85);
+}
+ 
+/* Website screenshots are wide/tall captures, not square photos -
+   use a shorter aspect ratio and anchor to the top so the browser
+   chrome/hero area shows instead of a random cropped-in slice. */
+.project-img.screenshot {
+    aspect-ratio: 4 / 3;
+    background: #fff;
+}
+ 
+.project-img.screenshot img {
+    object-position: top center;
 }
  
 .external-link {
@@ -1084,6 +1119,10 @@ footer {
  
     .cert-card {
         width: 220px;
+    }
+ 
+    .badge-card {
+        width: 260px;
     }
 }
  
