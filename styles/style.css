@@ -36,7 +36,7 @@ body {
 }
  
 .section-padding {
-    padding: 100px 24px;
+    padding: 60px 24px;
 }
  
 .section-subtitle {
@@ -675,8 +675,8 @@ header {
     justify-content: center;
     background: linear-gradient(135deg, var(--primary), var(--accent));
 }
- 
-.project-img.no-photo i {
+
+.project-img.no-photo > i {
     font-size: 4rem;
     color: rgba(255, 255, 255, 0.85);
 }
@@ -925,7 +925,7 @@ footer {
     }
  
     .section-padding {
-        padding: 60px 20px;
+        padding: 40px 20px;
     }
  
     header {
