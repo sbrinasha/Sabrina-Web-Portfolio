@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
-
+ 
 <body>
-
+ 
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">Sabrina.</a>
-
+ 
             <nav class="nav-menu">
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
@@ -27,33 +27,33 @@
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </nav>
-
+ 
             <div class="nav-right">
                 <button class="theme-btn"><i class="fa-solid fa-moon"></i></button>
                 <div class="mobile-toggle"><i class="fa-solid fa-bars"></i></div>
             </div>
         </div>
     </header>
-
+ 
     <section id="home" class="hero container">
         <div class="hero-content">
             <span class="role-badge">Information System Undergraduate</span>
             <h1>Sabrina <span class="text-gradient">Asha</span></h1>
             <h2>Information Systems . Data Engineering</h2>
             <p>A dedicated Computer Science (Information Systems) student, passionate about building real-world tech solutions</p>
-
+ 
             <div class="hero-btns">
                 <a href="#projects" class="btn primary-btn">View My Work <i class="fa-solid fa-arrow-right"></i></a>
                 <a href="#contact" class="btn outline-btn">Contact Me</a>
             </div>
-
+ 
             <div class="social-links">
                 <a href="https://github.com/sbrinasha" target="_blank"><i class="fa-brands fa-github"></i></a>
                 <a href="mailto:82929@siswa.unimas.my"><i class="fa-solid fa-envelope"></i></a>
                 <a href="#"><i class="fa-brands fa-linkedin"></i></a>
             </div>
         </div>
-
+ 
         <div class="hero-image">
             <div class="image-wrapper">
                 <img src="images/me.jpeg" alt="Sabrina Asha">
@@ -67,7 +67,7 @@
             </div>
         </div>
     </section>
-
+ 
     <section id="about" class="about container section-padding">
         <div class="about-grid">
             <div class="about-text">
@@ -79,7 +79,7 @@
                     I'm excited to put my skills to use </p>
                 <a href="#" class="btn outline-btn"><i class="fa-solid fa-download"></i> Download CV</a>
             </div>
-
+ 
             <div class="about-details">
                 <div class="detail-item">
                     <i class="fa-regular fa-user"></i>
@@ -111,40 +111,97 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="skills" class="skills container section-padding">
-        <span class="section-subtitle">MY SKILLS</span>
-        <h2 class="section-title">Technologies I Work With</h2>
-
-        <div class="skills-grid">
-            <div class="skill-card python">
-                <i class="fa-brands fa-python"></i>
-                <h3>Python</h3>
-                <p>AI Engine & Backend</p>
-                <div class="progress-line"></div>
-            </div>
-            <div class="skill-card cpp">
-                <i class="fa-brands fa-cuttlefish"></i>
-                <h3>C++ / Arduino</h3>
-                <p>Firmware Development</p>
-                <div class="progress-line"></div>
-            </div>
-            <div class="skill-card hardware">
-                <i class="fa-solid fa-microchip"></i>
-                <h3>ESP32-S3</h3>
-                <p>Edge Computing</p>
-                <div class="progress-line"></div>
-            </div>
-            <div class="skill-card network">
-                <i class="fa-solid fa-network-wired"></i>
-                <h3>MQTT</h3>
-                <p>Low-latency Comm.</p>
-                <div class="progress-line"></div>
+ 
+        <div class="experience">
+            <span class="section-subtitle">WORK HISTORY</span>
+            <h2 class="section-title">Professional Experience</h2>
+ 
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">FEB 2025 – AUG 2025</span>
+                        <h3>IT Intern</h3>
+                        <p class="timeline-company">HMG Enterprise Sdn Bhd</p>
+                        <ul class="timeline-list">
+                            <li><i class="fa-solid fa-arrow-right"></i> Designed and developed the company website using WordPress, HTML, and CSS to improve online presence.</li>
+                            <li><i class="fa-solid fa-arrow-right"></i> Performed data entry and maintained accurate digital business records.</li>
+                            <li><i class="fa-solid fa-arrow-right"></i> Assisted with troubleshooting minor IT hardware/software issues and supported asset tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+ 
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">2025 – 2026</span>
+                        <h3>Freelance Video Content Editor</h3>
+                        <p class="timeline-company">Self-Employed</p>
+                        <ul class="timeline-list">
+                            <li><i class="fa-solid fa-arrow-right"></i> Edited street interviews and content-creator videos for clients, handling pacing, transitions, and captions.</li>
+                            <li><i class="fa-solid fa-arrow-right"></i> Delivered social media-ready video content under tight deadlines for corporate and individual clients.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
+ 
+    <section id="skills" class="skills container section-padding">
+        <span class="section-subtitle">MY SKILLS</span>
+        <h2 class="section-title">Technologies I Work With</h2>
+ 
+        <div class="skills-category">
+            <h3 class="skills-category-title">Languages &amp; Web</h3>
+            <div class="chip-grid">
+                <div class="skill-chip"><i class="fa-brands fa-java"></i><span>Java</span></div>
+                <div class="skill-chip"><i class="fa-brands fa-cuttlefish"></i><span>C / C++</span></div>
+                <div class="skill-chip"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+                <div class="skill-chip"><i class="fa-brands fa-php"></i><span>PHP</span></div>
+                <div class="skill-chip"><i class="fa-brands fa-html5"></i><span>HTML</span></div>
+                <div class="skill-chip"><i class="fa-brands fa-css3-alt"></i><span>CSS</span></div>
+                <div class="skill-chip"><i class="fa-solid fa-database"></i><span>SQL / MySQL</span></div>
+                <div class="skill-chip"><i class="fa-brands fa-wordpress"></i><span>WordPress</span></div>
+                <div class="skill-chip"><i class="fa-solid fa-flask"></i><span>Flask</span></div>
+                <div class="skill-chip"><i class="fa-brands fa-python"></i><span>Python</span></div>
+            </div>
+        </div>
+ 
+        <div class="skills-category">
+            <h3 class="skills-category-title">Others</h3>
+            <div class="chip-grid">
+                <div class="skill-chip"><i class="fa-solid fa-file-word"></i><span>Microsoft Office</span></div>
+                <div class="skill-chip"><i class="fa-solid fa-sitemap"></i><span>Database Design</span></div>
+                <div class="skill-chip"><i class="fa-solid fa-palette"></i><span>Canva</span></div>
+                <div class="skill-chip"><i class="fa-solid fa-clapperboard"></i><span>CapCut</span></div>
+                <div class="skill-chip"><i class="fa-solid fa-file-excel"></i><span>Excel</span></div>
+                <div class="skill-chip"><i class="fa-solid fa-chart-line"></i><span>RapidMiner</span></div>
+            </div>
+        </div>
+    </section>
+ 
+    <section id="certifications" class="certifications container section-padding">
+        <span class="section-subtitle">MY CERTIFICATIONS</span>
+        <h2 class="section-title">Certifications</h2>
+ 
+        <div class="cert-scroll">
+            <div class="cert-card">
+                <img src="images/cert-ai-future.jpg" alt="AI For MY Future - Microsoft & Pepper Labs Certificate of Completion">
+                <div class="cert-info">
+                    <h4>AI For MY Future</h4>
+                    <p>Microsoft &amp; Pepper Labs &middot; 2025</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="images/cert-circuitcraft.jpg" alt="CircuitCraft: The PC Building Workshop Certificate of Participation">
+                <div class="cert-info">
+                    <h4>CircuitCraft: PC Building Workshop</h4>
+                    <p>UNIMAS FCSIT &middot; IT Week 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
     <section id="projects" class="projects container section-padding">
         <div class="section-header">
             <div>
@@ -153,7 +210,7 @@
             </div>
             <a href="https://github.com/sbrinasha" target="_blank" class="btn outline-btn">View All Projects</a>
         </div>
-
+ 
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-img">
@@ -173,16 +230,35 @@
                     </div>
                 </div>
             </div>
+ 
+            <div class="project-card">
+                <div class="project-img no-photo">
+                    <i class="fa-solid fa-globe"></i>
+                    <a href="https://hmg-enteprise.codex-source.com/" target="_blank" class="external-link"><i
+                            class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <div class="project-content">
+                    <h3>HMG Enterprise Website</h3>
+                    <p>Company website built during my internship to strengthen HMG Enterprise's online presence,
+                        covering layout, styling, and interactivity.</p>
+                    <div class="project-tags">
+                        <span>WordPress</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
+ 
     <section id="contact" class="contact container section-padding">
         <span class="section-subtitle">CONTACT ME</span>
         <div class="contact-grid">
             <div class="contact-info">
                 <h2 class="section-title">Get In Touch</h2>
                 <p>Have a project in mind or want to work together? Feel free to send me a message.</p>
-
+ 
                 <div class="info-list">
                     <div class="info-item email-item">
                         <i class="fa-regular fa-envelope"></i>
@@ -200,28 +276,28 @@
                     </div>
                 </div>
             </div>
-
+ 
             <div id="map" class="contact-map"></div>
         </div>
     </section>
-
+ 
     <footer>
         <div class="container footer-content">
             <p>&copy; 2026 Sabrina Asha. All rights reserved.</p>
             <a href="#home" class="scroll-top"><i class="fa-solid fa-arrow-up"></i></a>
         </div>
     </footer>
-
+ 
     <script>
         // Mobile menu toggle
         const mobileToggle = document.querySelector('.mobile-toggle');
         const navMenu = document.querySelector('.nav-menu');
-
+ 
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             mobileToggle.classList.toggle('active');
         });
-
+ 
         // Close mobile menu when a link is clicked
         const navLinks = document.querySelectorAll('.nav-menu a');
         navLinks.forEach(link => {
@@ -230,7 +306,7 @@
                 mobileToggle.classList.remove('active');
             });
         });
-
+ 
         // Set active nav link on scroll
         window.addEventListener('scroll', () => {
             let current = '';
@@ -241,7 +317,7 @@
                     current = section.getAttribute('id');
                 }
             });
-
+ 
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href').slice(1) === current) {
@@ -249,7 +325,7 @@
                 }
             });
         });
-
+ 
         // Copy email to clipboard with SweetAlert
         const copyableEmail = document.querySelector('.copyable-email');
         if (copyableEmail) {
@@ -276,12 +352,12 @@
                 });
             });
         }
-
+ 
         // Initialize map with Leaflet (free alternative to Google Maps)
         function initMap() {
             const lat = 1.4641605034098844; // Replace with actual latitude
             const lng = 110.43020760626976; // Replace with actual longitude
-
+ 
             const mapDiv = document.getElementById('map');
             if (mapDiv && typeof L !== 'undefined') {
                 const map = L.map('map').setView([lat, lng], 13);
@@ -292,7 +368,7 @@
                 L.marker([lat, lng]).addTo(map).bindPopup('Sabrina Asha Location');
             }
         }
-
+ 
         // Initialize map when DOM is loaded
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initMap);
@@ -300,7 +376,7 @@
             initMap();
         }
     </script>
-
+ 
 </body>
-
+ 
 </html>
