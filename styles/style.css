@@ -626,10 +626,6 @@ header {
     font-size: 0.8rem;
 }
  
-.badge-card {
-    width: 320px;
-}
- 
 .badge-card .badge-row {
     display: flex;
     align-items: center;
@@ -1117,10 +1113,6 @@ footer {
  
     .cert-card {
         width: 220px;
-    }
- 
-    .badge-card {
-        width: 260px;
     }
 }
  
