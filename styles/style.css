@@ -634,17 +634,15 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
     background: #FFFFFF;
-    padding: 20px 16px;
+    padding: 16px;
     aspect-ratio: 4 / 3;
     border-bottom: 1px solid var(--border);
 }
  
 .badge-card .badge-row img {
-    width: 30%;
-    height: auto;
-    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     border-bottom: none;
 }
