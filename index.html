@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script async defer src="https://www.instagram.com/embed.js"></script>
 </head>
  
 <body>
@@ -24,6 +25,7 @@
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
+                <a href="#video-content">Video Content</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -43,7 +45,7 @@
             <p>A dedicated Computer Science (Information Systems) student, passionate about building real-world tech solutions</p>
  
             <div class="hero-btns">
-                <a href="#projects" class="btn primary-btn">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#video-content" class="btn primary-btn">View My Work <i class="fa-solid fa-arrow-right"></i></a>
                 <a href="#contact" class="btn outline-btn">Contact Me</a>
             </div>
  
@@ -210,6 +212,31 @@
             </div>
         </div>
     </section>
+
+    <section id="video-content" class="video-content container section-padding">
+        <div class="section-header">
+            <div>
+                <span class="section-subtitle">VIDEO CONTENT</span>
+                <h2 class="section-title">Content Portfolio</h2>
+            </div>
+        </div>
+
+        <div class="platform-block">
+            <div class="section-header compact-header">
+                <span class="section-subtitle">YOUTUBE</span>
+                <h2 class="section-title">YouTube Videos</h2>
+            </div>
+            <div id="youtube-video-grid" class="video-grid"></div>
+        </div>
+
+        <div class="platform-block">
+            <div class="section-header compact-header">
+                <span class="section-subtitle">INSTAGRAM</span>
+                <h2 class="section-title">Instagram Content</h2>
+            </div>
+            <div id="instagram-video-grid" class="video-grid"></div>
+        </div>
+    </section>
  
     <section id="projects" class="projects container section-padding">
         <div class="section-header">
@@ -298,6 +325,125 @@
     </footer>
  
     <script>
+        const defaultYoutubeData = [
+            {
+                title: 'City Walk Vlog',
+                description: 'A cinematic short video capturing everyday moments and creative storytelling along the city streets.',
+                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+                gradient: 'linear-gradient(135deg, #ff7f50 0%, #ff3d81 100%)'
+            },
+            {
+                title: 'Creative Editing Reel',
+                description: 'A fast-paced montage highlighting transitions, pacing, and visual storytelling techniques.',
+                url: 'https://www.youtube.com/watch?v=placeholder',
+                thumbnail: 'https://img.youtube.com/vi/placeholder/hqdefault.jpg',
+                gradient: 'linear-gradient(135deg, #08c2a8 0%, #2b7fff 100%)'
+            },
+            {
+                title: 'Brand Story Teaser',
+                description: 'A polished teaser concept designed for a service, product, or personal brand presentation.',
+                url: 'https://www.youtube.com/watch?v=placeholder',
+                thumbnail: 'https://img.youtube.com/vi/placeholder/hqdefault.jpg',
+                gradient: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)'
+            }
+        ];
+
+        const defaultInstagramData = [
+            {
+                title: 'Behind the Scenes',
+                description: 'A quick look into how I plan, shoot, and edit engaging content for social media channels.',
+                url: 'https://www.instagram.com/',
+                thumbnail: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80',
+                gradient: 'linear-gradient(135deg, #00c2ff 0%, #5a67ff 100%)'
+            },
+            {
+                title: 'Interview Clips',
+                description: 'Edited interview snippets that focus on natural flow, strong pacing, and readable subtitles.',
+                url: 'https://www.instagram.com/',
+                thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80',
+                gradient: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)'
+            },
+            {
+                title: 'Event Highlights',
+                description: 'Short-form social content designed to keep audiences engaged and informed.',
+                url: 'https://www.instagram.com/',
+                thumbnail: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80',
+                gradient: 'linear-gradient(135deg, #f7b733 0%, #fc4a1a 100%)'
+            }
+        ];
+
+        function escapeHtml(value = '') {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function renderVideoCards(videos, containerId, platformName) {
+            const videoGrid = document.getElementById(containerId);
+            if (!videoGrid || !Array.isArray(videos)) return;
+
+            videoGrid.innerHTML = videos.map((video, index) => {
+                const platformIcon = platformName === 'Instagram' ? 'fa-brands fa-instagram' : 'fa-brands fa-youtube';
+                const gradient = video.gradient || [
+                    'linear-gradient(135deg, #ff7f50 0%, #ff3d81 100%)',
+                    'linear-gradient(135deg, #00c2ff 0%, #5a67ff 100%)',
+                    'linear-gradient(135deg, #08c2a8 0%, #2b7fff 100%)'
+                ][index % 3];
+
+                const thumbnailMarkup = video.thumbnail
+                    ? `<img src="${escapeHtml(video.thumbnail)}" alt="${escapeHtml(video.title)}">`
+                    : `<div class="video-thumb-fallback" style="background: ${gradient};"><i class="fa-solid fa-play"></i></div>`;
+
+                const mediaMarkup = platformName === 'Instagram' && video.url
+                    ? `<div class="instagram-embed-wrap"><blockquote class="instagram-media" data-instgrm-permalink="${escapeHtml(video.url)}" data-instgrm-version="12"></blockquote></div>`
+                    : `<div class="video-thumb">${thumbnailMarkup}<span class="platform-badge"><i class="${platformIcon}"></i> ${escapeHtml(platformName)}</span></div>`;
+
+                const displayThumb = platformName === 'Instagram'
+                    ? mediaMarkup
+                    : `<div class="video-thumb">${thumbnailMarkup}<span class="platform-badge"><i class="${platformIcon}"></i> ${escapeHtml(platformName)}</span></div>`;
+
+                return `
+                    <article class="video-card">
+                        ${displayThumb}
+                        <div class="video-meta">
+                            <h3>${escapeHtml(video.title)}</h3>
+                            <p>${escapeHtml(video.description)}</p>
+                            <a href="${escapeHtml(video.url)}" target="_blank" rel="noreferrer" class="video-link">
+                                <i class="${platformIcon}"></i> ${platformName === 'Instagram' ? 'View post' : 'Watch video'}
+                            </a>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            if (platformName === 'Instagram' && window.instgrm && window.instgrm.Embeds) {
+                window.instgrm.Embeds.process();
+            }
+        }
+
+        async function loadVideoContent() {
+            try {
+                const [youtubeResponse, instagramResponse] = await Promise.all([
+                    fetch('data/youtube-content.json'),
+                    fetch('data/instagram-content.json')
+                ]);
+
+                const youtubeData = youtubeResponse.ok ? await youtubeResponse.json() : { videos: defaultYoutubeData };
+                const instagramData = instagramResponse.ok ? await instagramResponse.json() : { videos: defaultInstagramData };
+
+                renderVideoCards(youtubeData.videos || youtubeData, 'youtube-video-grid', 'YouTube');
+                renderVideoCards(instagramData.videos || instagramData, 'instagram-video-grid', 'Instagram');
+            } catch (error) {
+                console.warn('Using fallback video content data:', error);
+                renderVideoCards(defaultYoutubeData, 'youtube-video-grid', 'YouTube');
+                renderVideoCards(defaultInstagramData, 'instagram-video-grid', 'Instagram');
+            }
+        }
+
         // Mobile menu toggle
         const mobileToggle = document.querySelector('.mobile-toggle');
         const navMenu = document.querySelector('.nav-menu');
@@ -380,9 +526,13 @@
  
         // Initialize map when DOM is loaded
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initMap);
+            document.addEventListener('DOMContentLoaded', () => {
+                initMap();
+                loadVideoContent();
+            });
         } else {
             initMap();
+            loadVideoContent();
         }
     </script>
  

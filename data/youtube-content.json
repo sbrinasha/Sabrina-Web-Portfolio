@@ -1,0 +1,22 @@
+{
+  "videos": [
+    {
+      "title": "City Walk Vlog",
+      "description": "A cinematic short video capturing everyday moments and creative storytelling along the city streets.",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+    },
+    {
+      "title": "Creative Editing Reel",
+      "description": "A fast-paced montage highlighting transitions, pacing, and visual storytelling techniques.",
+      "url": "https://www.youtube.com/watch?v=placeholder",
+      "thumbnail": "https://img.youtube.com/vi/placeholder/hqdefault.jpg"
+    },
+    {
+      "title": "Brand Story Teaser",
+      "description": "A polished teaser concept designed for a service, product, or personal brand presentation.",
+      "url": "https://www.youtube.com/watch?v=placeholder",
+      "thumbnail": "https://img.youtube.com/vi/placeholder/hqdefault.jpg"
+    }
+  ]
+}
