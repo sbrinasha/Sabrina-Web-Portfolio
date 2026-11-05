@@ -1,541 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sabrina Asha – Information Systems undergraduate at UNIMAS working in data engineering, web development and video editing.">
+    <meta name="theme-color" content="#12162b">
     <title>Sabrina Asha | Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+
+    <!-- Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+
     <link rel="stylesheet" href="styles/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-    <script async defer src="https://www.instagram.com/embed.js"></script>
 </head>
- 
+
 <body>
- 
-    <header>
-        <div class="container nav-container">
-            <a href="#" class="logo">Sabrina.</a>
- 
-            <nav class="nav-menu">
-                <a href="#home" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#video-content">Video Content</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
- 
-            <div class="nav-right">
-                <button class="theme-btn"><i class="fa-solid fa-moon"></i></button>
-                <div class="mobile-toggle"><i class="fa-solid fa-bars"></i></div>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+    <!-- Custom cursor (desktop only) -->
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header" id="header">
+        <nav class="nav container" aria-label="Main">
+            <a href="#home" class="nav__logo">Sabrina<span>.</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li><a href="#about" class="nav__link">About</a></li>
+                    <li><a href="#skills" class="nav__link">Skills</a></li>
+                    <li><a href="#video-content" class="nav__link">Video content</a></li>
+                    <li><a href="#projects" class="nav__link">Projects</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+
+                <div class="nav__menu-social">
+                    <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-line"></i></a>
+                    <a href="mailto:sbrnasha@gmail.com" aria-label="Email"><i class="ri-mail-line"></i></a>
+                    <!-- TODO: put your LinkedIn profile URL here -->
+                    <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+                </div>
             </div>
-        </div>
+
+            <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span><span></span>
+            </button>
+        </nav>
     </header>
- 
-    <section id="home" class="hero container">
-        <div class="hero-content">
-            <span class="role-badge">Information System Undergraduate</span>
-            <h1>Sabrina <span class="text-gradient">Asha</span></h1>
-            <h2>Information Systems . Data Engineering</h2>
-            <p>A dedicated Computer Science (Information Systems) student, passionate about building real-world tech solutions</p>
- 
-            <div class="hero-btns">
-                <a href="#video-content" class="btn primary-btn">View My Work <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#contact" class="btn outline-btn">Contact Me</a>
-            </div>
- 
-            <div class="social-links">
-                <a href="https://github.com/sbrinasha" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="mailto:sbrnasha@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-        </div>
- 
-        <div class="hero-image">
-            <div class="image-wrapper">
-                <img src="images/me.jpeg" alt="Sabrina Asha">
-                <!-- <div class="floating-badge badge-left">
-                    <span class="highlight">3.30</span>
-                    <span>CGPA</span>
-                </div> -->
-                <div class="floating-badge badge-right">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-            </div>
-        </div>
-    </section>
- 
-    <section id="about" class="about container section-padding">
-        <div class="about-grid">
-            <div class="about-text">
-                <span class="section-subtitle">ABOUT ME</span>
-                <h2 class="section-title">About Me</h2>
-                <p>I'm Sabrina Asha, a passionate Computer Science student majoring in Information System from
-                    Universiti Malaysia Sarawak (UNIMAS).</p>
-                <p>I enjoy solving technical problems and helping people. I'm a fast learner anc can adapt quickly to new tools, 
-                    I'm excited to put my skills to use </p>
-                <a href="#" class="btn outline-btn"><i class="fa-solid fa-download"></i> Download CV</a>
-            </div>
- 
-            <div class="about-details">
-                <div class="detail-item">
-                    <i class="fa-regular fa-user"></i>
-                    <div>
-                        <h4>Name</h4>
-                        <p>Sabrina Asha A/P Gopinathan</p>
+
+    <main>
+        <!-- ================= HOME ================= -->
+        <section class="home" id="home">
+            <div class="home__container container">
+                <div class="home__data">
+                    <p class="home__greeting load-in" style="--d:0">Information Systems undergraduate</p>
+                    <h1 class="home__name load-in" style="--d:1">Sabrina<br>Asha</h1>
+                    <p class="home__role load-in" style="--d:2">
+                        <span class="home__role-label">Working in</span>
+                        <span class="home__typed" id="typed" aria-live="polite">Information Systems</span><span class="home__caret" aria-hidden="true"></span>
+                    </p>
+                    <p class="home__description load-in" style="--d:3">
+                        A dedicated Computer Science (Information Systems) student, passionate about building real-world tech solutions.
+                    </p>
+
+                    <div class="home__buttons load-in" style="--d:4">
+                        <a href="#video-content" class="button">View my work <i class="ri-arrow-down-line"></i></a>
+                        <a href="#contact" class="button button--ghost">Contact me</a>
+                    </div>
+
+                    <div class="home__social load-in" style="--d:5">
+                        <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-line"></i></a>
+                        <a href="mailto:sbrnasha@gmail.com" aria-label="Email"><i class="ri-mail-line"></i></a>
+                        <!-- TODO: put your LinkedIn profile URL here -->
+                        <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
                     </div>
                 </div>
-                <div class="detail-item">
-                    <i class="fa-regular fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>sbrnasha@gmail.com</p>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <h4>Location</h4>
-                        <p>Sarawak, Malaysia</p>
-                    </div>
-                </div>
-                <div class="detail-item">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <div>
-                        <h4>University</h4>
-                        <p>UNIMAS (FCSIT)</p>
-                    </div>
+
+                <!-- Portrait framed like a camera viewfinder -->
+                <div class="home__visual load-in" style="--d:2">
+                    <figure class="viewfinder">
+                        <img src="images/me.jpeg" alt="Portrait of Sabrina Asha" class="viewfinder__img">
+                        <span class="viewfinder__corner viewfinder__corner--tl"></span>
+                        <span class="viewfinder__corner viewfinder__corner--tr"></span>
+                        <span class="viewfinder__corner viewfinder__corner--bl"></span>
+                        <span class="viewfinder__corner viewfinder__corner--br"></span>
+                        <span class="viewfinder__rec"><i></i>REC</span>
+                        <span class="viewfinder__timecode" id="timecode">00:00:00:00</span>
+                        <span class="viewfinder__meta">UNIMAS, Sarawak</span>
+                    </figure>
                 </div>
             </div>
-        </div>
- 
-        <div class="experience">
-            <span class="section-subtitle">WORK HISTORY</span>
-            <h2 class="section-title">Professional Experience</h2>
- 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">FEB 2025 – AUG 2025</span>
-                        <h3>IT Intern</h3>
-                        <p class="timeline-company">HMG Enterprise Sdn Bhd</p>
-                        <ul class="timeline-list">
-                            <li><i class="fa-solid fa-arrow-right"></i> Designed and developed the company website using WordPress, HTML, and CSS to improve online presence.</li>
-                            <li><i class="fa-solid fa-arrow-right"></i> Performed data entry and maintained accurate digital business records.</li>
-                            <li><i class="fa-solid fa-arrow-right"></i> Assisted with troubleshooting minor IT hardware/software issues and supported asset tracking.</li>
+
+            <a href="#about" class="home__scroll" aria-label="Scroll to About">
+                <i class="ri-mouse-line"></i> Scroll down
+            </a>
+        </section>
+
+        <!-- ================= ABOUT ================= -->
+        <section class="section" id="about">
+            <div class="container about__container">
+                <div class="about__intro reveal">
+                    <h2 class="section__title">About me</h2>
+                    <p>
+                        I'm Sabrina Asha, a passionate Computer Science student majoring in Information Systems at
+                        Universiti Malaysia Sarawak (UNIMAS).
+                    </p>
+                    <p>
+                        I enjoy solving technical problems and helping people. I'm a fast learner and can adapt quickly
+                        to new tools, and I'm excited to put my skills to use.
+                    </p>
+                    <!-- TODO: put your CV file in the repo (e.g. files/Sabrina-Asha-CV.pdf) and update the href -->
+                    <a href="#" class="button button--ghost" download><i class="ri-download-2-line"></i> Download CV</a>
+                </div>
+
+                <dl class="about__details reveal">
+                    <div class="about__detail">
+                        <dt><i class="ri-user-3-line"></i> Name</dt>
+                        <dd>Sabrina Asha A/P Gopinathan</dd>
+                    </div>
+                    <div class="about__detail">
+                        <dt><i class="ri-mail-line"></i> Email</dt>
+                        <dd><a href="mailto:sbrnasha@gmail.com">sbrnasha@gmail.com</a></dd>
+                    </div>
+                    <div class="about__detail">
+                        <dt><i class="ri-map-pin-line"></i> Location</dt>
+                        <dd>Sarawak, Malaysia</dd>
+                    </div>
+                    <div class="about__detail">
+                        <dt><i class="ri-graduation-cap-line"></i> University</dt>
+                        <dd>UNIMAS (FCSIT)</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <!-- Experience timeline -->
+            <div class="container experience">
+                <h2 class="section__title reveal">Professional experience</h2>
+
+                <ol class="timeline">
+                    <li class="timeline__item reveal">
+                        <span class="timeline__date">Feb 2025 – Aug 2025</span>
+                        <div class="timeline__card">
+                            <h3>IT Intern</h3>
+                            <p class="timeline__company">HMG Enterprise Sdn Bhd</p>
+                            <ul>
+                                <li>Designed and developed the company website using WordPress, HTML, and CSS to improve online presence.</li>
+                                <li>Performed data entry and maintained accurate digital business records.</li>
+                                <li>Assisted with troubleshooting minor IT hardware/software issues and supported asset tracking.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="timeline__item reveal">
+                        <span class="timeline__date">2025 – 2026</span>
+                        <div class="timeline__card">
+                            <h3>Freelance Video Content Editor</h3>
+                            <p class="timeline__company">Self-employed</p>
+                            <ul>
+                                <li>Edited street interviews and content-creator videos for clients, handling pacing, transitions, and captions.</li>
+                                <li>Delivered social media-ready video content under tight deadlines for corporate and individual clients.</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ================= SKILLS ================= -->
+        <section class="section section--alt" id="skills">
+            <div class="container">
+                <h2 class="section__title reveal">Technologies I work with</h2>
+
+                <div class="skills__grid">
+                    <div class="skills__group reveal">
+                        <h3 class="skills__group-title">Languages &amp; web</h3>
+                        <ul class="chips">
+                            <li class="chip"><i class="devicon-java-plain"></i>Java</li>
+                            <li class="chip"><i class="devicon-cplusplus-plain"></i>C / C++</li>
+                            <li class="chip"><i class="devicon-javascript-plain"></i>JavaScript</li>
+                            <li class="chip"><i class="devicon-php-plain"></i>PHP</li>
+                            <li class="chip"><i class="devicon-html5-plain"></i>HTML</li>
+                            <li class="chip"><i class="devicon-css3-plain"></i>CSS</li>
+                            <li class="chip"><i class="devicon-mysql-original"></i>SQL / MySQL</li>
+                            <li class="chip"><i class="devicon-wordpress-plain"></i>WordPress</li>
+                            <li class="chip"><i class="devicon-flask-original"></i>Flask</li>
+                            <li class="chip"><i class="devicon-python-plain"></i>Python</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills__group reveal">
+                        <h3 class="skills__group-title">Others</h3>
+                        <ul class="chips">
+                            <li class="chip"><i class="ri-microsoft-line"></i>Microsoft Office</li>
+                            <li class="chip"><i class="ri-node-tree"></i>Database Design</li>
+                            <li class="chip"><i class="ri-palette-line"></i>Canva</li>
+                            <li class="chip"><i class="ri-film-line"></i>CapCut</li>
+                            <li class="chip"><i class="ri-file-excel-2-line"></i>Excel</li>
+                            <li class="chip"><i class="ri-line-chart-line"></i>RapidMiner</li>
                         </ul>
                     </div>
                 </div>
- 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">2025 – 2026</span>
-                        <h3>Freelance Video Content Editor</h3>
-                        <p class="timeline-company">Self-Employed</p>
-                        <ul class="timeline-list">
-                            <li><i class="fa-solid fa-arrow-right"></i> Edited street interviews and content-creator videos for clients, handling pacing, transitions, and captions.</li>
-                            <li><i class="fa-solid fa-arrow-right"></i> Delivered social media-ready video content under tight deadlines for corporate and individual clients.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
- 
-    <section id="skills" class="skills container section-padding">
-        <span class="section-subtitle">MY SKILLS</span>
-        <h2 class="section-title">Technologies I Work With</h2>
- 
-        <div class="skills-category">
-            <h3 class="skills-category-title">Languages &amp; Web</h3>
-            <div class="chip-grid">
-                <div class="skill-chip"><i class="fa-brands fa-java"></i><span>Java</span></div>
-                <div class="skill-chip"><i class="fa-brands fa-cuttlefish"></i><span>C / C++</span></div>
-                <div class="skill-chip"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
-                <div class="skill-chip"><i class="fa-brands fa-php"></i><span>PHP</span></div>
-                <div class="skill-chip"><i class="fa-brands fa-html5"></i><span>HTML</span></div>
-                <div class="skill-chip"><i class="fa-brands fa-css3-alt"></i><span>CSS</span></div>
-                <div class="skill-chip"><i class="fa-solid fa-database"></i><span>SQL / MySQL</span></div>
-                <div class="skill-chip"><i class="fa-brands fa-wordpress"></i><span>WordPress</span></div>
-                <div class="skill-chip"><i class="fa-solid fa-flask"></i><span>Flask</span></div>
-                <div class="skill-chip"><i class="fa-brands fa-python"></i><span>Python</span></div>
-            </div>
-        </div>
- 
-        <div class="skills-category">
-            <h3 class="skills-category-title">Others</h3>
-            <div class="chip-grid">
-                <div class="skill-chip"><i class="fa-solid fa-file-word"></i><span>Microsoft Office</span></div>
-                <div class="skill-chip"><i class="fa-solid fa-sitemap"></i><span>Database Design</span></div>
-                <div class="skill-chip"><i class="fa-solid fa-palette"></i><span>Canva</span></div>
-                <div class="skill-chip"><i class="fa-solid fa-clapperboard"></i><span>CapCut</span></div>
-                <div class="skill-chip"><i class="fa-solid fa-file-excel"></i><span>Excel</span></div>
-                <div class="skill-chip"><i class="fa-solid fa-chart-line"></i><span>RapidMiner</span></div>
-            </div>
-        </div>
-    </section>
- 
-    <section id="certifications" class="certifications container section-padding">
-        <span class="section-subtitle">MY CERTIFICATIONS</span>
-        <h2 class="section-title">Certifications</h2>
- 
-        <div class="cert-scroll">
-            <div class="cert-card">
-                <img src="images/cert-ai-future.jpg" alt="AI For MY Future - Microsoft & Pepper Labs Certificate of Completion">
-                <div class="cert-info">
-                    <h4>AI For MY Future</h4>
-                    <p>Microsoft &amp; Pepper Labs &middot; 2025</p>
-                </div>
-            </div>
-            <div class="cert-card">
-                <img src="images/cert-circuitcraft.jpg" alt="CircuitCraft: The PC Building Workshop Certificate of Participation">
-                <div class="cert-info">
-                    <h4>CircuitCraft: PC Building Workshop</h4>
-                    <p>UNIMAS FCSIT &middot; IT Week 2025</p>
-                </div>
-            </div>
-            <div class="cert-card badge-card">
-                <div class="badge-row">
-                    <img src="images/cert-rapidminer.png" alt="RapidMiner Academy badges: Machine Learning, Data Engineering, and Applications & Use Cases Professional">
-                </div>
-                <div class="cert-info">
-                    <h4>RapidMiner Academy Certifications</h4>
-                    <p>Machine Learning, Data Engineering &amp; Applications Professional</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="video-content" class="video-content container section-padding">
-        <div class="section-header">
-            <div>
-                <span class="section-subtitle">VIDEO CONTENT</span>
-                <h2 class="section-title">Content Portfolio</h2>
-            </div>
-        </div>
-
-        <div class="platform-block">
-            <div class="section-header compact-header">
-                <span class="section-subtitle">YOUTUBE</span>
-                <h2 class="section-title">YouTube Videos</h2>
-            </div>
-            <div id="youtube-video-grid" class="video-grid"></div>
-        </div>
-
-        <div class="platform-block">
-            <div class="section-header compact-header">
-                <span class="section-subtitle">INSTAGRAM</span>
-                <h2 class="section-title">Instagram Content</h2>
-            </div>
-            <div id="instagram-video-grid" class="video-grid"></div>
-        </div>
-    </section>
- 
-    <section id="projects" class="projects container section-padding">
-        <div class="section-header">
-            <div>
-                <span class="section-subtitle">MY PROJECTS</span>
-                <h2 class="section-title">Featured Projects</h2>
-            </div>
-            <a href="https://github.com/sbrinasha" target="_blank" class="btn outline-btn">View All Projects</a>
-        </div>
- 
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="images/sync-guard.jpeg" alt="SyncGuard">
-                    <a href="https://github.com/sbrinasha/Sync-Guard" target="_blank" class="external-link"><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                <div class="project-content">
-                    <h3>SyncGuard (FYP)</h3>
-                    <p>An AI-Driven Smart Home Automation System for Adaptive Safety. Uses sensor fusion and Random
-                        Forest ML to eliminate false-positive alarm fatigue.</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>ESP32</span>
-                        <span>MQTT</span>
-                        <span>Scikit-learn</span>
-                    </div>
-                </div>
-            </div>
- 
-            <div class="project-card">
-                <div class="project-img screenshot">
-                    <img src="images/hmg-website.png" alt="HMG Enterprise Sdn Bhd website homepage">
-                    <a href="https://hmg-enteprise.codex-source.com/" target="_blank" class="external-link"><i
-                            class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                <div class="project-content">
-                    <h3>HMG Enterprise Website</h3>
-                    <p>Company website built during my internship to strengthen HMG Enterprise's online presence,
-                        covering layout, styling, and interactivity.</p>
-                    <div class="project-tags">
-                        <span>WordPress</span>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
- 
-    <section id="contact" class="contact container section-padding">
-        <span class="section-subtitle">CONTACT ME</span>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h2 class="section-title">Get In Touch</h2>
-                <p>Have a project in mind or want to work together? Feel free to send me a message.</p>
- 
-                <div class="info-list">
-                    <div class="info-item email-item">
-                        <i class="fa-regular fa-envelope"></i>
-                        <div>
-                            <h4>Email (Click to copy)</h4>
-                            <p class="copyable-email" data-email="sbrnasha@gmail.com">sbrnasha@gmail.com</p>
+                <!-- Certifications -->
+                <div class="certs">
+                    <div class="certs__header reveal">
+                        <h2 class="section__title">Certifications</h2>
+                        <div class="slider-nav">
+                            <button class="slider-nav__btn certs-prev" aria-label="Previous certificate"><i class="ri-arrow-left-s-line"></i></button>
+                            <button class="slider-nav__btn certs-next" aria-label="Next certificate"><i class="ri-arrow-right-s-line"></i></button>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Kota Samarahan, Sarawak</p>
+
+                    <div class="swiper certs__swiper reveal">
+                        <div class="swiper-wrapper">
+                            <article class="swiper-slide cert">
+                                <button class="cert__image" data-lightbox="images/cert-ai-future.jpg" aria-label="Enlarge AI For MY Future certificate">
+                                    <img src="images/cert-ai-future.jpg" alt="AI For MY Future – Microsoft & Pepper Labs Certificate of Completion" loading="lazy">
+                                    <span class="cert__zoom"><i class="ri-zoom-in-line"></i></span>
+                                </button>
+                                <h3>AI For MY Future</h3>
+                                <p>Microsoft &amp; Pepper Labs, 2025</p>
+                            </article>
+                            <article class="swiper-slide cert">
+                                <button class="cert__image" data-lightbox="images/cert-circuitcraft.jpg" aria-label="Enlarge CircuitCraft certificate">
+                                    <img src="images/cert-circuitcraft.jpg" alt="CircuitCraft: The PC Building Workshop Certificate of Participation" loading="lazy">
+                                    <span class="cert__zoom"><i class="ri-zoom-in-line"></i></span>
+                                </button>
+                                <h3>CircuitCraft: PC Building Workshop</h3>
+                                <p>UNIMAS FCSIT, IT Week 2025</p>
+                            </article>
+                            <article class="swiper-slide cert">
+                                <button class="cert__image cert__image--badges" data-lightbox="images/cert-rapidminer.png" aria-label="Enlarge RapidMiner Academy badges">
+                                    <img src="images/cert-rapidminer.png" alt="RapidMiner Academy badges: Machine Learning, Data Engineering, and Applications & Use Cases Professional" loading="lazy">
+                                    <span class="cert__zoom"><i class="ri-zoom-in-line"></i></span>
+                                </button>
+                                <h3>RapidMiner Academy Certifications</h3>
+                                <p>Machine Learning, Data Engineering &amp; Applications Professional</p>
+                            </article>
                         </div>
+                        <div class="swiper-pagination certs-pagination"></div>
                     </div>
                 </div>
             </div>
- 
-            <div id="map" class="contact-map"></div>
-        </div>
-    </section>
- 
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 Sabrina Asha. All rights reserved.</p>
-            <a href="#home" class="scroll-top"><i class="fa-solid fa-arrow-up"></i></a>
-        </div>
-    </footer>
- 
-    <script>
-        const defaultYoutubeData = [
-            {
-                title: 'City Walk Vlog',
-                description: 'A cinematic short video capturing everyday moments and creative storytelling along the city streets.',
-                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-                thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-                gradient: 'linear-gradient(135deg, #ff7f50 0%, #ff3d81 100%)'
-            },
-            {
-                title: 'Creative Editing Reel',
-                description: 'A fast-paced montage highlighting transitions, pacing, and visual storytelling techniques.',
-                url: 'https://www.youtube.com/watch?v=placeholder',
-                thumbnail: 'https://img.youtube.com/vi/placeholder/hqdefault.jpg',
-                gradient: 'linear-gradient(135deg, #08c2a8 0%, #2b7fff 100%)'
-            },
-            {
-                title: 'Brand Story Teaser',
-                description: 'A polished teaser concept designed for a service, product, or personal brand presentation.',
-                url: 'https://www.youtube.com/watch?v=placeholder',
-                thumbnail: 'https://img.youtube.com/vi/placeholder/hqdefault.jpg',
-                gradient: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)'
-            }
-        ];
+        </section>
 
-        const defaultInstagramData = [
-            {
-                title: 'Behind the Scenes',
-                description: 'A quick look into how I plan, shoot, and edit engaging content for social media channels.',
-                url: 'https://www.instagram.com/',
-                thumbnail: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80',
-                gradient: 'linear-gradient(135deg, #00c2ff 0%, #5a67ff 100%)'
-            },
-            {
-                title: 'Interview Clips',
-                description: 'Edited interview snippets that focus on natural flow, strong pacing, and readable subtitles.',
-                url: 'https://www.instagram.com/',
-                thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80',
-                gradient: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)'
-            },
-            {
-                title: 'Event Highlights',
-                description: 'Short-form social content designed to keep audiences engaged and informed.',
-                url: 'https://www.instagram.com/',
-                thumbnail: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80',
-                gradient: 'linear-gradient(135deg, #f7b733 0%, #fc4a1a 100%)'
-            }
-        ];
+        <!-- ================= VIDEO CONTENT ================= -->
+        <section class="section" id="video-content">
+            <div class="container">
+                <div class="certs__header reveal">
+                    <div>
+                        <h2 class="section__title">Content portfolio</h2>
+                        <p class="section__lead">Instagram reels I've edited – street interviews and creator content. Swipe or use the arrows.</p>
+                    </div>
+                    <div class="slider-nav">
+                        <button class="slider-nav__btn reels-prev" aria-label="Previous reel"><i class="ri-arrow-left-s-line"></i></button>
+                        <button class="slider-nav__btn reels-next" aria-label="Next reel"><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
 
-        function escapeHtml(value = '') {
-            return String(value)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
-        }
+                <div class="swiper reels__swiper reveal">
+                    <div class="swiper-wrapper" id="reels-wrapper">
+                        <!-- Reels are added by js/main.js from data/instagram-content.json -->
+                    </div>
+                    <div class="swiper-pagination reels-pagination"></div>
+                </div>
+            </div>
+        </section>
 
-        function renderVideoCards(videos, containerId, platformName) {
-            const videoGrid = document.getElementById(containerId);
-            if (!videoGrid || !Array.isArray(videos)) return;
+        <!-- ================= PROJECTS ================= -->
+        <section class="section section--alt" id="projects">
+            <div class="container">
+                <div class="certs__header reveal">
+                    <h2 class="section__title">Featured projects</h2>
+                    <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" class="button button--ghost button--small"><i class="ri-github-line"></i> View all projects</a>
+                </div>
 
-            videoGrid.innerHTML = videos.map((video, index) => {
-                const platformIcon = platformName === 'Instagram' ? 'fa-brands fa-instagram' : 'fa-brands fa-youtube';
-                const gradient = video.gradient || [
-                    'linear-gradient(135deg, #ff7f50 0%, #ff3d81 100%)',
-                    'linear-gradient(135deg, #00c2ff 0%, #5a67ff 100%)',
-                    'linear-gradient(135deg, #08c2a8 0%, #2b7fff 100%)'
-                ][index % 3];
-
-                const thumbnailMarkup = video.thumbnail
-                    ? `<img src="${escapeHtml(video.thumbnail)}" alt="${escapeHtml(video.title)}">`
-                    : `<div class="video-thumb-fallback" style="background: ${gradient};"><i class="fa-solid fa-play"></i></div>`;
-
-                const mediaMarkup = platformName === 'Instagram' && video.url
-                    ? `<div class="instagram-embed-wrap"><blockquote class="instagram-media" data-instgrm-permalink="${escapeHtml(video.url)}" data-instgrm-version="12"></blockquote></div>`
-                    : `<div class="video-thumb">${thumbnailMarkup}<span class="platform-badge"><i class="${platformIcon}"></i> ${escapeHtml(platformName)}</span></div>`;
-
-                const displayThumb = platformName === 'Instagram'
-                    ? mediaMarkup
-                    : `<div class="video-thumb">${thumbnailMarkup}<span class="platform-badge"><i class="${platformIcon}"></i> ${escapeHtml(platformName)}</span></div>`;
-
-                return `
-                    <article class="video-card">
-                        ${displayThumb}
-                        <div class="video-meta">
-                            <h3>${escapeHtml(video.title)}</h3>
-                            <p>${escapeHtml(video.description)}</p>
-                            <a href="${escapeHtml(video.url)}" target="_blank" rel="noreferrer" class="video-link">
-                                <i class="${platformIcon}"></i> ${platformName === 'Instagram' ? 'View post' : 'Watch video'}
+                <div class="projects__list">
+                    <article class="project reveal">
+                        <a href="https://github.com/sbrinasha/Sync-Guard" target="_blank" rel="noopener" class="project__image">
+                            <img src="images/sync-guard.jpeg" alt="SyncGuard smart home system" loading="lazy">
+                        </a>
+                        <div class="project__data">
+                            <span class="project__tag">Final year project</span>
+                            <h3 class="project__title">SyncGuard</h3>
+                            <p>
+                                An AI-driven smart home automation system for adaptive safety. Uses sensor fusion and
+                                Random Forest ML to eliminate false-positive alarm fatigue.
+                            </p>
+                            <ul class="project__stack">
+                                <li>Python</li><li>ESP32</li><li>MQTT</li><li>Scikit-learn</li>
+                            </ul>
+                            <a href="https://github.com/sbrinasha/Sync-Guard" target="_blank" rel="noopener" class="project__link">
+                                <i class="ri-github-line"></i> View code on GitHub
                             </a>
                         </div>
                     </article>
-                `;
-            }).join('');
 
-            if (platformName === 'Instagram' && window.instgrm && window.instgrm.Embeds) {
-                window.instgrm.Embeds.process();
-            }
-        }
+                    <article class="project project--reverse reveal">
+                        <a href="https://hmg-enteprise.codex-source.com/" target="_blank" rel="noopener" class="project__image">
+                            <img src="images/hmg-website.png" alt="HMG Enterprise Sdn Bhd website homepage" loading="lazy">
+                        </a>
+                        <div class="project__data">
+                            <span class="project__tag">Internship</span>
+                            <h3 class="project__title">HMG Enterprise Website</h3>
+                            <p>
+                                Company website built during my internship to strengthen HMG Enterprise's online
+                                presence, covering layout, styling, and interactivity.
+                            </p>
+                            <ul class="project__stack">
+                                <li>WordPress</li><li>HTML</li><li>CSS</li><li>JavaScript</li>
+                            </ul>
+                            <a href="https://hmg-enteprise.codex-source.com/" target="_blank" rel="noopener" class="project__link">
+                                <i class="ri-external-link-line"></i> Visit live site
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        async function loadVideoContent() {
-            try {
-                const [youtubeResponse, instagramResponse] = await Promise.all([
-                    fetch('data/youtube-content.json'),
-                    fetch('data/instagram-content.json')
-                ]);
+        <!-- ================= CONTACT ================= -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="contact__container">
+                    <div class="contact__info reveal">
+                        <h2 class="section__title">Get in touch</h2>
+                        <p class="section__lead">Have a project in mind or want to work together? Feel free to send me a message.</p>
 
-                const youtubeData = youtubeResponse.ok ? await youtubeResponse.json() : { videos: defaultYoutubeData };
-                const instagramData = instagramResponse.ok ? await instagramResponse.json() : { videos: defaultInstagramData };
+                        <button class="contact__card" id="copy-email" data-email="sbrnasha@gmail.com">
+                            <i class="ri-mail-line"></i>
+                            <span>
+                                <small>Email (click to copy)</small>
+                                <strong>sbrnasha@gmail.com</strong>
+                            </span>
+                            <i class="ri-file-copy-line contact__card-action"></i>
+                        </button>
 
-                renderVideoCards(youtubeData.videos || youtubeData, 'youtube-video-grid', 'YouTube');
-                renderVideoCards(instagramData.videos || instagramData, 'instagram-video-grid', 'Instagram');
-            } catch (error) {
-                console.warn('Using fallback video content data:', error);
-                renderVideoCards(defaultYoutubeData, 'youtube-video-grid', 'YouTube');
-                renderVideoCards(defaultInstagramData, 'instagram-video-grid', 'Instagram');
-            }
-        }
+                        <div class="contact__card contact__card--static">
+                            <i class="ri-map-pin-line"></i>
+                            <span>
+                                <small>Location</small>
+                                <strong>Kota Samarahan, Sarawak</strong>
+                            </span>
+                        </div>
+                    </div>
 
-        // Mobile menu toggle
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navMenu = document.querySelector('.nav-menu');
- 
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileToggle.classList.toggle('active');
-        });
- 
-        // Close mobile menu when a link is clicked
-        const navLinks = document.querySelectorAll('.nav-menu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileToggle.classList.remove('active');
-            });
-        });
- 
-        // Set active nav link on scroll
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 60) {
-                    current = section.getAttribute('id');
-                }
-            });
- 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
- 
-        // Copy email to clipboard with SweetAlert
-        const copyableEmail = document.querySelector('.copyable-email');
-        if (copyableEmail) {
-            copyableEmail.addEventListener('click', () => {
-                const email = copyableEmail.getAttribute('data-email');
-                navigator.clipboard.writeText(email).then(() => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Copied!',
-                        text: 'Email copied to clipboard: ' + email,
-                        timer: 2000,
-                        timerProgressBar: true,
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false
-                    });
-                }).catch(() => {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Failed',
-                        text: 'Could not copy email',
-                        timer: 2000
-                    });
-                });
-            });
-        }
- 
-        // Initialize map with Leaflet (free alternative to Google Maps)
-        function initMap() {
-            const lat = 1.4641605034098844; // Replace with actual latitude
-            const lng = 110.43020760626976; // Replace with actual longitude
- 
-            const mapDiv = document.getElementById('map');
-            if (mapDiv && typeof L !== 'undefined') {
-                const map = L.map('map').setView([lat, lng], 13);
-                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-                    maxZoom: 19
-                }).addTo(map);
-                L.marker([lat, lng]).addTo(map).bindPopup('Sabrina Asha Location');
-            }
-        }
- 
-        // Initialize map when DOM is loaded
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                initMap();
-                loadVideoContent();
-            });
-        } else {
-            initMap();
-            loadVideoContent();
-        }
-    </script>
- 
+                    <!-- Opens the visitor's email app – no backend needed on GitHub Pages -->
+                    <form class="contact__form reveal" id="contact-form" novalidate>
+                        <div class="field">
+                            <label for="cf-name">Your name</label>
+                            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="cf-email">Your email</label>
+                            <input id="cf-email" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="field">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message" name="message" rows="5" required></textarea>
+                        </div>
+                        <p class="form__error" id="form-error" role="alert"></p>
+                        <button type="submit" class="button">Send message <i class="ri-send-plane-line"></i></button>
+                        <p class="form__note">This opens your email app with the message filled in.</p>
+                    </form>
+                </div>
+
+                <div id="map" class="contact__map reveal" aria-label="Map showing Kota Samarahan, Sarawak"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer__container">
+            <a href="#home" class="nav__logo">Sabrina<span>.</span></a>
+            <ul class="footer__links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="footer__copy">&copy; <span id="year">2026</span> Sabrina Asha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <a href="#home" class="scrollup" id="scroll-up" aria-label="Back to top"><i class="ri-arrow-up-line"></i></a>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox__close" id="lightbox-close" aria-label="Close"><i class="ri-close-line"></i></button>
+        <img src="" alt="" id="lightbox-img">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <script src="js/main.js"></script>
 </body>
- 
+
 </html>
