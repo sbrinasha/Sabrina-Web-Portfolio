@@ -601,7 +601,7 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
     color: var(--violet);
 }
 
-/* photo card */
+/* portrait: headshot clipped inside a frosted glass arch */
 .home__visual {
     margin-top: clamp(2.75rem, 7vw, 4rem);
     width: 100%;
@@ -609,54 +609,93 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
     justify-content: center;
 }
 
-.home__card {
+.home__portrait {
+    --arch-w: 340px;
+    --arch-h: 420px;
     position: relative;
-    width: min(360px, 78vw);
-    padding: 12px;
-    border-radius: 32px;
-    background: rgba(255, 255, 255, .45);
-    -webkit-backdrop-filter: var(--glass-blur);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 30px 60px -24px rgba(76, 64, 160, .4);
-    transform: rotate(-4deg);
-    transition: transform .6s var(--ease);
+    isolation: isolate;
+    /* room for the 12px glass ring on every side */
+    margin: 12px;
 }
 
-.home__card:hover { transform: rotate(0deg) translateY(-4px); }
+.home__arch {
+    position: relative;
+    width: var(--arch-w);
+    height: var(--arch-h);
+    max-width: calc(100vw - 2 * var(--gutter) - 24px);
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 40% 40% 28px 28px / 32% 32% 28px 28px;
+    /* stays visible as a gradient if the image fails to load */
+    background: linear-gradient(165deg, #E9E3FF 0%, #DCE4FF 100%);
+    border: 1px solid rgba(255, 255, 255, .7);
+    box-shadow: 0 25px 60px rgba(139, 92, 246, .22);
+}
 
 .home__photo {
-    border-radius: 24px;
-    overflow: hidden;
-    aspect-ratio: 4 / 5;
-    background: linear-gradient(160deg, #E9E2FF 0%, #D9DDFB 50%, #D6E7FD 100%);
-    isolation: isolate;
-}
-
-.home__photo img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
-    /* blends the photo's white background into the lavender gradient */
+    object-position: center 20%;
+    /* tints the photo's white background with the lavender gradient */
     mix-blend-mode: multiply;
 }
 
+/* larger glass ring sitting 12px outside the arch */
+.home__ring {
+    position: absolute;
+    inset: -12px;
+    z-index: -1;
+    border-radius: 40% 40% 38px 38px / 32% 32% 38px 38px;
+    background: rgba(255, 255, 255, .35);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(255, 255, 255, .6);
+}
+
+/* floating glass chip */
+.home__chip {
+    position: absolute;
+    left: -26px;
+    top: 38%;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .7);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 14px 30px -12px rgba(76, 64, 160, .35);
+    color: var(--violet);
+    font-size: 1.4rem;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* rotating badge on the arch's bottom-right corner */
 .home__badge {
     position: absolute;
-    right: -38px;
-    bottom: 42px;
+    right: -34px;
+    bottom: -26px;
+    z-index: 2;
     width: 112px;
     height: 112px;
     border-radius: 50%;
     display: grid;
     place-items: center;
-    background: rgba(255, 255, 255, .78);
+    background: rgba(255, 255, 255, .72);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
     border: 1px solid var(--glass-border);
     box-shadow: 0 14px 30px -12px rgba(76, 64, 160, .35);
-    transform: rotate(4deg);
 }
 
 .home__badge-text {
@@ -669,9 +708,8 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
 
 .home__badge-text text {
     font-size: 9.6px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 1.6px;
-    fill: var(--heading);
     font-family: var(--font);
 }
 
@@ -1459,6 +1497,10 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
     .skills__row { grid-template-columns: 1fr; gap: 1.25rem; }
 
     .contact__container { grid-template-columns: 1fr; }
+
+    .home__portrait { --arch-w: 290px; --arch-h: 360px; }
+    .home__badge { width: 98px; height: 98px; right: -26px; bottom: -20px; }
+    .home__chip { left: -20px; }
 }
 
 /* phone */
@@ -1468,9 +1510,10 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
     .home__buttons { flex-direction: column; width: 100%; max-width: 300px; }
     .home__buttons .button { width: 100%; }
 
-    .home__card { width: min(300px, 76vw); }
-    .home__badge { width: 88px; height: 88px; right: -22px; bottom: 30px; }
-    .home__badge-icon { width: 2rem; height: 2rem; font-size: 1rem; }
+    .home__portrait { --arch-w: 230px; --arch-h: 290px; }
+    .home__badge { width: 80px; height: 80px; right: -18px; bottom: -16px; }
+    .home__badge-icon { width: 1.9rem; height: 1.9rem; font-size: 1rem; }
+    .home__chip { width: 2.6rem; height: 2.6rem; font-size: 1.1rem; left: -14px; }
 
     .about__info { grid-template-columns: 1fr; padding: 1.1rem; }
 
@@ -1493,7 +1536,7 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
     .nav__logo { font-size: 1.25rem; }
     .home__greeting { font-size: .85rem; }
     .home__title { font-size: 2rem; }
-    .home__badge { width: 74px; height: 74px; right: -14px; }
+    .home__badge { width: 70px; height: 70px; right: -10px; }
     .home__badge-text text { font-size: 10px; letter-spacing: 1px; }
 
     .about__statement { font-size: 1.3rem; }
@@ -1521,4 +1564,5 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
     .reveal { opacity: 1; transform: none; }
 
     .home__caret { display: none; }
+    .home__chip { animation: none; }
 }
