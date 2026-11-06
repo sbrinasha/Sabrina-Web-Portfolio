@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sabrina Asha – Information Systems undergraduate at UNIMAS working in data engineering, web development and video editing.">
-    <meta name="theme-color" content="#12162b">
+    <meta name="description" content="Sabrina Asha – Information Systems undergraduate at UNIMAS working in web development, system development, app development and video editing.">
+    <meta name="theme-color" content="#EEF0FA">
     <title>Sabrina Asha | Portfolio</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
@@ -19,12 +19,21 @@
 
     <!-- Libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- Background glow blobs -->
+    <div class="bg-blobs" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+        <span class="blob blob--4"></span>
+    </div>
+
     <!-- Scroll progress bar -->
     <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
 
@@ -40,11 +49,15 @@
                 <ul class="nav__list">
                     <li><a href="#home" class="nav__link active-link">Home</a></li>
                     <li><a href="#about" class="nav__link">About</a></li>
+                    <li><a href="#work" class="nav__link">Work</a></li>
+                    <li><a href="#experience" class="nav__link">Experience</a></li>
                     <li><a href="#skills" class="nav__link">Skills</a></li>
-                    <li><a href="#video-content" class="nav__link">Video content</a></li>
-                    <li><a href="#projects" class="nav__link">Projects</a></li>
+                    <li><a href="#certifications" class="nav__link">Certifications</a></li>
+                    <li><a href="#content" class="nav__link">Content</a></li>
                     <li><a href="#contact" class="nav__link">Contact</a></li>
                 </ul>
+
+                <a href="#contact" class="button nav__menu-cta">Contact me <i class="ri-arrow-right-up-line"></i></a>
 
                 <div class="nav__menu-social">
                     <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-line"></i></a>
@@ -54,33 +67,43 @@
                 </div>
             </div>
 
+            <a href="#contact" class="button button--small nav__cta">Contact me <i class="ri-arrow-right-up-line"></i></a>
+
             <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
                 <span></span><span></span>
             </button>
         </nav>
     </header>
 
-    <main>
+    <main id="main">
         <!-- ================= HOME ================= -->
         <section class="home" id="home">
             <div class="home__container container">
                 <div class="home__data">
-                    <p class="home__greeting load-in" style="--d:0">Information Systems undergraduate</p>
-                    <h1 class="home__name load-in" style="--d:1">Sabrina<br>Asha</h1>
-                    <p class="home__role load-in" style="--d:2">
-                        <span class="home__role-label">Working in</span>
-                        <span class="home__typed" id="typed" aria-live="polite">Information Systems</span><span class="home__caret" aria-hidden="true"></span>
-                    </p>
-                    <p class="home__description load-in" style="--d:3">
-                        A dedicated Computer Science (Information Systems) student, passionate about building real-world tech solutions.
+                    <p class="home__greeting load-in" style="--d:0">
+                        <span class="home__wave" aria-hidden="true">👋</span> Hello I'm Sabrina
                     </p>
 
-                    <div class="home__buttons load-in" style="--d:4">
-                        <a href="#video-content" class="button">View my work <i class="ri-arrow-down-line"></i></a>
-                        <a href="#contact" class="button button--ghost">Contact me</a>
+                    <h1 class="home__title load-in" style="--d:1">
+                        Working in
+                        <span class="home__typed-line">
+                            <span class="home__typed gradient-text" id="typed">Information System</span><span class="home__caret" aria-hidden="true"></span>
+                        </span>
+                    </h1>
+                    <!-- Screen readers get the full list instead of the animation -->
+                    <p class="sr-only">Information System, Web Development, System Development, App Development and Video Editing.</p>
+
+                    <p class="home__description load-in" style="--d:2">
+                        Passionate about building real world tech solutions
+                    </p>
+
+                    <div class="home__buttons load-in" style="--d:3">
+                        <!-- TODO: add your CV to the repo (e.g. files/Sabrina-Asha-CV.pdf) and put its path in href -->
+                        <a href="#" class="button" download>Download CV <i class="ri-download-2-line"></i></a>
+                        <a href="#contact" class="button button--glass">Contact me <i class="ri-arrow-right-up-line"></i></a>
                     </div>
 
-                    <div class="home__social load-in" style="--d:5">
+                    <div class="home__social load-in" style="--d:4">
                         <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-line"></i></a>
                         <a href="mailto:sbrnasha@gmail.com" aria-label="Email"><i class="ri-mail-line"></i></a>
                         <!-- TODO: put your LinkedIn profile URL here -->
@@ -88,71 +111,155 @@
                     </div>
                 </div>
 
-                <!-- Portrait framed like a camera viewfinder -->
-                <div class="home__visual load-in" style="--d:2">
-                    <figure class="viewfinder">
-                        <img src="images/me.jpeg" alt="Portrait of Sabrina Asha" class="viewfinder__img">
-                        <span class="viewfinder__corner viewfinder__corner--tl"></span>
-                        <span class="viewfinder__corner viewfinder__corner--tr"></span>
-                        <span class="viewfinder__corner viewfinder__corner--bl"></span>
-                        <span class="viewfinder__corner viewfinder__corner--br"></span>
-                        <span class="viewfinder__rec"><i></i>REC</span>
-                        <span class="viewfinder__timecode" id="timecode">00:00:00:00</span>
-                        <span class="viewfinder__meta">UNIMAS, Sarawak</span>
+                <!-- Photo card -->
+                <div class="home__visual load-in" style="--d:3">
+                    <figure class="home__card">
+                        <div class="home__photo">
+                            <img src="images/sabrina-profile.jpeg" alt="Portrait of Sabrina Asha" width="600" height="750">
+                        </div>
+
+                        <!-- Rotating circular text badge -->
+                        <div class="home__badge" aria-hidden="true">
+                            <svg viewBox="0 0 100 100" class="home__badge-text">
+                                <defs>
+                                    <path id="badge-circle" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"></path>
+                                </defs>
+                                <text>
+                                    <textPath href="#badge-circle">SABRINA ASHA • DEVELOPER • EDITOR •</textPath>
+                                </text>
+                            </svg>
+                            <i class="ri-sparkling-2-fill home__badge-icon"></i>
+                        </div>
                     </figure>
                 </div>
             </div>
 
             <a href="#about" class="home__scroll" aria-label="Scroll to About">
-                <i class="ri-mouse-line"></i> Scroll down
+                <i class="ri-arrow-down-line"></i>
             </a>
         </section>
 
         <!-- ================= ABOUT ================= -->
         <section class="section" id="about">
-            <div class="container about__container">
-                <div class="about__intro reveal">
-                    <h2 class="section__title">About me</h2>
-                    <p>
-                        I'm Sabrina Asha, a passionate Computer Science student majoring in Information Systems at
-                        Universiti Malaysia Sarawak (UNIMAS).
-                    </p>
-                    <p>
-                        I enjoy solving technical problems and helping people. I'm a fast learner and can adapt quickly
-                        to new tools, and I'm excited to put my skills to use.
-                    </p>
-                    <!-- TODO: put your CV file in the repo (e.g. files/Sabrina-Asha-CV.pdf) and update the href -->
-                    <a href="#" class="button button--ghost" download><i class="ri-download-2-line"></i> Download CV</a>
+            <div class="container">
+                <div class="about__container glass reveal">
+                    <h2 class="about__statement">
+                        <span class="about__label">About Me:</span>
+                        Young <span class="gradient-text">freelancer</span> who enjoys exploring
+                        <span class="gradient-text">tech solutions</span>, passionate about my work,
+                        disciplined, and dedicated. I'm a <span class="gradient-text">fast learner</span>
+                        and can adapt quickly to new tools, and I'm excited to put my skills to use.
+                    </h2>
+
+                    <div class="about__side">
+                        <p>If you have a project in mind, check out my work!</p>
+                        <a href="#contact" class="button">Contact me <i class="ri-arrow-right-up-line"></i></a>
+                    </div>
                 </div>
 
-                <dl class="about__details reveal">
-                    <div class="about__detail">
-                        <dt><i class="ri-user-3-line"></i> Name</dt>
-                        <dd>Sabrina Asha A/P Gopinathan</dd>
+                <dl class="about__info glass reveal">
+                    <div class="about__item">
+                        <span class="icon-tile icon-tile--violet"><i class="ri-user-3-line"></i></span>
+                        <div>
+                            <dt>Name</dt>
+                            <dd>Sabrina Asha A/P Gopinathan</dd>
+                        </div>
                     </div>
-                    <div class="about__detail">
-                        <dt><i class="ri-mail-line"></i> Email</dt>
-                        <dd><a href="mailto:sbrnasha@gmail.com">sbrnasha@gmail.com</a></dd>
+                    <div class="about__item">
+                        <span class="icon-tile icon-tile--blue"><i class="ri-mail-line"></i></span>
+                        <div>
+                            <dt>Email</dt>
+                            <dd><a href="mailto:sbrnasha@gmail.com">sbrnasha@gmail.com</a></dd>
+                        </div>
                     </div>
-                    <div class="about__detail">
-                        <dt><i class="ri-map-pin-line"></i> Location</dt>
-                        <dd>Sarawak, Malaysia</dd>
+                    <div class="about__item">
+                        <span class="icon-tile icon-tile--pink"><i class="ri-map-pin-line"></i></span>
+                        <div>
+                            <dt>Location</dt>
+                            <dd>Sarawak, Malaysia</dd>
+                        </div>
                     </div>
-                    <div class="about__detail">
-                        <dt><i class="ri-graduation-cap-line"></i> University</dt>
-                        <dd>UNIMAS (FCSIT)</dd>
+                    <div class="about__item">
+                        <span class="icon-tile icon-tile--mint"><i class="ri-graduation-cap-line"></i></span>
+                        <div>
+                            <dt>University</dt>
+                            <dd>UNIMAS (FCSIT)</dd>
+                        </div>
                     </div>
                 </dl>
             </div>
+        </section>
 
-            <!-- Experience timeline -->
-            <div class="container experience">
-                <h2 class="section__title reveal">Professional experience</h2>
+        <!-- ================= WORK / PROJECTS ================= -->
+        <section class="section" id="work">
+            <div class="container">
+                <h2 class="section__title section__title--center reveal">View My <span class="gradient-text">Work</span></h2>
+
+                <div class="swiper work__swiper reveal">
+                    <div class="swiper-wrapper">
+                        <article class="swiper-slide work__card glass">
+                            <div class="work__image">
+                                <img src="images/sync-guard.jpeg" alt="SyncGuard smart home system" loading="lazy">
+                                <a href="https://github.com/sbrinasha/Sync-Guard" target="_blank" rel="noopener" class="work__arrow" aria-label="View SyncGuard code on GitHub">
+                                    <i class="ri-arrow-right-up-line"></i>
+                                </a>
+                            </div>
+                            <div class="work__data">
+                                <span class="work__number">01</span>
+                                <span class="work__tag">Final year project</span>
+                                <h3 class="work__title">SyncGuard</h3>
+                                <p class="work__description">
+                                    An AI-driven smart home automation system for adaptive safety. Uses sensor fusion and
+                                    Random Forest ML to eliminate false-positive alarm fatigue.
+                                </p>
+                                <ul class="work__stack">
+                                    <li>Python</li><li>ESP32</li><li>MQTT</li><li>Scikit-learn</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="swiper-slide work__card glass">
+                            <div class="work__image">
+                                <img src="images/hmg-website.png" alt="HMG Enterprise Sdn Bhd website homepage" loading="lazy">
+                                <a href="https://hmg-enteprise.codex-source.com/" target="_blank" rel="noopener" class="work__arrow" aria-label="Visit the HMG Enterprise live site">
+                                    <i class="ri-arrow-right-up-line"></i>
+                                </a>
+                            </div>
+                            <div class="work__data">
+                                <span class="work__number">02</span>
+                                <span class="work__tag">Internship</span>
+                                <h3 class="work__title">HMG Enterprise Website</h3>
+                                <p class="work__description">
+                                    Company website built during my internship to strengthen HMG Enterprise's online
+                                    presence, covering layout, styling, and interactivity.
+                                </p>
+                                <ul class="work__stack">
+                                    <li>WordPress</li><li>HTML</li><li>CSS</li><li>JavaScript</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="work__pagination" id="work-pagination"></div>
+                </div>
+
+                <div class="work__more reveal">
+                    <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" class="button button--glass">
+                        <i class="ri-github-line"></i> View all projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= EXPERIENCE ================= -->
+        <section class="section" id="experience">
+            <div class="container">
+                <h2 class="section__title section__title--center reveal">Professional <span class="gradient-text">Experience</span></h2>
 
                 <ol class="timeline">
                     <li class="timeline__item reveal">
-                        <span class="timeline__date">Feb 2025 – Aug 2025</span>
-                        <div class="timeline__card">
+                        <span class="timeline__dot" aria-hidden="true"></span>
+                        <div class="timeline__card glass">
+                            <span class="timeline__date"><i class="ri-calendar-line"></i> Feb 2025 – Aug 2025</span>
                             <h3>IT Intern</h3>
                             <p class="timeline__company">HMG Enterprise Sdn Bhd</p>
                             <ul>
@@ -163,8 +270,9 @@
                         </div>
                     </li>
                     <li class="timeline__item reveal">
-                        <span class="timeline__date">2025 – 2026</span>
-                        <div class="timeline__card">
+                        <span class="timeline__dot" aria-hidden="true"></span>
+                        <div class="timeline__card glass">
+                            <span class="timeline__date"><i class="ri-calendar-line"></i> 2025 – 2026</span>
                             <h3>Freelance Video Content Editor</h3>
                             <p class="timeline__company">Self-employed</p>
                             <ul>
@@ -178,85 +286,108 @@
         </section>
 
         <!-- ================= SKILLS ================= -->
-        <section class="section section--alt" id="skills">
+        <section class="section" id="skills">
             <div class="container">
-                <h2 class="section__title reveal">Technologies I work with</h2>
+                <h2 class="section__title section__title--center reveal">My <span class="gradient-text">Skills</span></h2>
+                <p class="section__lead section__lead--center reveal">
+                    My skills are those I've learned and developed over the years. By studying, focusing,
+                    and being consistent in what I love most.
+                </p>
 
-                <div class="skills__grid">
-                    <div class="skills__group reveal">
-                        <h3 class="skills__group-title">Languages &amp; web</h3>
-                        <ul class="chips">
-                            <li class="chip"><i class="devicon-java-plain"></i>Java</li>
-                            <li class="chip"><i class="devicon-cplusplus-plain"></i>C / C++</li>
-                            <li class="chip"><i class="devicon-javascript-plain"></i>JavaScript</li>
-                            <li class="chip"><i class="devicon-php-plain"></i>PHP</li>
-                            <li class="chip"><i class="devicon-html5-plain"></i>HTML</li>
-                            <li class="chip"><i class="devicon-css3-plain"></i>CSS</li>
-                            <li class="chip"><i class="devicon-mysql-original"></i>SQL / MySQL</li>
-                            <li class="chip"><i class="devicon-wordpress-plain"></i>WordPress</li>
-                            <li class="chip"><i class="devicon-flask-original"></i>Flask</li>
-                            <li class="chip"><i class="devicon-python-plain"></i>Python</li>
+                <div class="skills__rows">
+                    <div class="skills__row glass reveal">
+                        <h3 class="skills__category">
+                            <span class="icon-tile icon-tile--violet"><i class="ri-layout-masonry-line"></i></span>
+                            Frontend
+                        </h3>
+                        <ul class="skills__list">
+                            <li class="skill"><i class="devicon-html5-plain colored"></i>HTML</li>
+                            <li class="skill"><i class="devicon-css3-plain colored"></i>CSS</li>
+                            <li class="skill"><i class="devicon-javascript-plain colored"></i>JavaScript</li>
+                            <li class="skill"><i class="devicon-wordpress-plain colored"></i>WordPress</li>
+                            <li class="skill"><i class="devicon-react-original colored"></i>React</li>
+                            <li class="skill"><i class="devicon-git-plain colored"></i>Git</li>
+                            <li class="skill"><i class="devicon-github-original"></i>GitHub</li>
                         </ul>
                     </div>
 
-                    <div class="skills__group reveal">
-                        <h3 class="skills__group-title">Others</h3>
-                        <ul class="chips">
-                            <li class="chip"><i class="ri-microsoft-line"></i>Microsoft Office</li>
-                            <li class="chip"><i class="ri-node-tree"></i>Database Design</li>
-                            <li class="chip"><i class="ri-palette-line"></i>Canva</li>
-                            <li class="chip"><i class="ri-film-line"></i>CapCut</li>
-                            <li class="chip"><i class="ri-file-excel-2-line"></i>Excel</li>
-                            <li class="chip"><i class="ri-line-chart-line"></i>RapidMiner</li>
+                    <div class="skills__row glass reveal">
+                        <h3 class="skills__category">
+                            <span class="icon-tile icon-tile--blue"><i class="ri-server-line"></i></span>
+                            Backend
+                        </h3>
+                        <ul class="skills__list">
+                            <li class="skill"><i class="devicon-django-plain"></i>Django</li>
+                            <li class="skill"><i class="devicon-laravel-original colored"></i>Laravel</li>
+                            <li class="skill"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</li>
+                            <li class="skill"><i class="devicon-php-plain colored"></i>PHP</li>
+                            <li class="skill"><i class="devicon-python-plain colored"></i>Python</li>
+                            <li class="skill"><i class="devicon-mysql-original colored"></i>MySQL</li>
                         </ul>
                     </div>
-                </div>
 
-                <!-- Certifications -->
-                <div class="certs">
-                    <div class="certs__header reveal">
-                        <h2 class="section__title">Certifications</h2>
-                        <div class="slider-nav">
-                            <button class="slider-nav__btn certs-prev" aria-label="Previous certificate"><i class="ri-arrow-left-s-line"></i></button>
-                            <button class="slider-nav__btn certs-next" aria-label="Next certificate"><i class="ri-arrow-right-s-line"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="swiper certs__swiper reveal">
-                        <div class="swiper-wrapper">
-                            <article class="swiper-slide cert">
-                                <button class="cert__image" data-lightbox="images/cert-ai-future.jpg" aria-label="Enlarge AI For MY Future certificate">
-                                    <img src="images/cert-ai-future.jpg" alt="AI For MY Future – Microsoft & Pepper Labs Certificate of Completion" loading="lazy">
-                                    <span class="cert__zoom"><i class="ri-zoom-in-line"></i></span>
-                                </button>
-                                <h3>AI For MY Future</h3>
-                                <p>Microsoft &amp; Pepper Labs, 2025</p>
-                            </article>
-                            <article class="swiper-slide cert">
-                                <button class="cert__image" data-lightbox="images/cert-circuitcraft.jpg" aria-label="Enlarge CircuitCraft certificate">
-                                    <img src="images/cert-circuitcraft.jpg" alt="CircuitCraft: The PC Building Workshop Certificate of Participation" loading="lazy">
-                                    <span class="cert__zoom"><i class="ri-zoom-in-line"></i></span>
-                                </button>
-                                <h3>CircuitCraft: PC Building Workshop</h3>
-                                <p>UNIMAS FCSIT, IT Week 2025</p>
-                            </article>
-                            <article class="swiper-slide cert">
-                                <button class="cert__image cert__image--badges" data-lightbox="images/cert-rapidminer.png" aria-label="Enlarge RapidMiner Academy badges">
-                                    <img src="images/cert-rapidminer.png" alt="RapidMiner Academy badges: Machine Learning, Data Engineering, and Applications & Use Cases Professional" loading="lazy">
-                                    <span class="cert__zoom"><i class="ri-zoom-in-line"></i></span>
-                                </button>
-                                <h3>RapidMiner Academy Certifications</h3>
-                                <p>Machine Learning, Data Engineering &amp; Applications Professional</p>
-                            </article>
-                        </div>
-                        <div class="swiper-pagination certs-pagination"></div>
+                    <div class="skills__row glass reveal">
+                        <h3 class="skills__category">
+                            <span class="icon-tile icon-tile--pink"><i class="ri-magic-line"></i></span>
+                            Others
+                        </h3>
+                        <ul class="skills__list">
+                            <li class="skill"><i class="devicon-canva-original colored"></i>Canva</li>
+                            <li class="skill"><i class="ri-film-line skill__ri"></i>CapCut</li>
+                            <li class="skill"><i class="devicon-figma-plain colored"></i>Figma</li>
+                            <li class="skill"><i class="ri-file-excel-2-line skill__ri skill__ri--green"></i>Excel</li>
+                            <li class="skill"><i class="ri-database-2-line skill__ri"></i>Database Design</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= VIDEO CONTENT ================= -->
-        <section class="section" id="video-content">
+        <!-- ================= CERTIFICATIONS ================= -->
+        <section class="section" id="certifications">
+            <div class="container">
+                <div class="certs__header reveal">
+                    <h2 class="section__title">Certifications</h2>
+                    <div class="slider-nav">
+                        <button class="slider-nav__btn certs-prev" aria-label="Previous certificate"><i class="ri-arrow-left-s-line"></i></button>
+                        <button class="slider-nav__btn certs-next" aria-label="Next certificate"><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+
+                <div class="swiper certs__swiper reveal">
+                    <div class="swiper-wrapper">
+                        <article class="swiper-slide cert glass">
+                            <button class="cert__image" data-lightbox="images/cert-ai-future.jpg" aria-label="Enlarge AI For MY Future certificate">
+                                <img src="images/cert-ai-future.jpg" alt="AI For MY Future – Microsoft & Pepper Labs Certificate of Completion" loading="lazy">
+                                <span class="cert__zoom"><i class="ri-zoom-in-line"></i></span>
+                            </button>
+                            <h3>AI For MY Future</h3>
+                            <p>Microsoft &amp; Pepper Labs, 2025</p>
+                        </article>
+                        <article class="swiper-slide cert glass">
+                            <button class="cert__image" data-lightbox="images/cert-circuitcraft.jpg" aria-label="Enlarge CircuitCraft certificate">
+                                <img src="images/cert-circuitcraft.jpg" alt="CircuitCraft: The PC Building Workshop Certificate of Participation" loading="lazy">
+                                <span class="cert__zoom"><i class="ri-zoom-in-line"></i></span>
+                            </button>
+                            <h3>CircuitCraft: PC Building Workshop</h3>
+                            <p>UNIMAS FCSIT, IT Week 2025</p>
+                        </article>
+                        <article class="swiper-slide cert glass">
+                            <button class="cert__image cert__image--badges" data-lightbox="images/cert-rapidminer.png" aria-label="Enlarge RapidMiner Academy badges">
+                                <img src="images/cert-rapidminer.png" alt="RapidMiner Academy badges: Machine Learning, Data Engineering, and Applications & Use Cases Professional" loading="lazy">
+                                <span class="cert__zoom"><i class="ri-zoom-in-line"></i></span>
+                            </button>
+                            <h3>RapidMiner Academy Certifications</h3>
+                            <p>Machine Learning, Data Engineering &amp; Applications Professional</p>
+                        </article>
+                    </div>
+                    <div class="swiper-pagination certs-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTENT PORTFOLIO ================= -->
+        <section class="section" id="content">
             <div class="container">
                 <div class="certs__header reveal">
                     <div>
@@ -278,120 +409,78 @@
             </div>
         </section>
 
-        <!-- ================= PROJECTS ================= -->
-        <section class="section section--alt" id="projects">
-            <div class="container">
-                <div class="certs__header reveal">
-                    <h2 class="section__title">Featured projects</h2>
-                    <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" class="button button--ghost button--small"><i class="ri-github-line"></i> View all projects</a>
-                </div>
-
-                <div class="projects__list">
-                    <article class="project reveal">
-                        <a href="https://github.com/sbrinasha/Sync-Guard" target="_blank" rel="noopener" class="project__image">
-                            <img src="images/sync-guard.jpeg" alt="SyncGuard smart home system" loading="lazy">
-                        </a>
-                        <div class="project__data">
-                            <span class="project__tag">Final year project</span>
-                            <h3 class="project__title">SyncGuard</h3>
-                            <p>
-                                An AI-driven smart home automation system for adaptive safety. Uses sensor fusion and
-                                Random Forest ML to eliminate false-positive alarm fatigue.
-                            </p>
-                            <ul class="project__stack">
-                                <li>Python</li><li>ESP32</li><li>MQTT</li><li>Scikit-learn</li>
-                            </ul>
-                            <a href="https://github.com/sbrinasha/Sync-Guard" target="_blank" rel="noopener" class="project__link">
-                                <i class="ri-github-line"></i> View code on GitHub
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="project project--reverse reveal">
-                        <a href="https://hmg-enteprise.codex-source.com/" target="_blank" rel="noopener" class="project__image">
-                            <img src="images/hmg-website.png" alt="HMG Enterprise Sdn Bhd website homepage" loading="lazy">
-                        </a>
-                        <div class="project__data">
-                            <span class="project__tag">Internship</span>
-                            <h3 class="project__title">HMG Enterprise Website</h3>
-                            <p>
-                                Company website built during my internship to strengthen HMG Enterprise's online
-                                presence, covering layout, styling, and interactivity.
-                            </p>
-                            <ul class="project__stack">
-                                <li>WordPress</li><li>HTML</li><li>CSS</li><li>JavaScript</li>
-                            </ul>
-                            <a href="https://hmg-enteprise.codex-source.com/" target="_blank" rel="noopener" class="project__link">
-                                <i class="ri-external-link-line"></i> Visit live site
-                            </a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
         <!-- ================= CONTACT ================= -->
         <section class="section" id="contact">
             <div class="container">
+                <h2 class="section__title section__title--center reveal">Contact <span class="gradient-text">Me</span></h2>
+
                 <div class="contact__container">
-                    <div class="contact__info reveal">
-                        <h2 class="section__title">Get in touch</h2>
-                        <p class="section__lead">Have a project in mind or want to work together? Feel free to send me a message.</p>
-
-                        <button class="contact__card" id="copy-email" data-email="sbrnasha@gmail.com">
-                            <i class="ri-mail-line"></i>
-                            <span>
-                                <small>Email (click to copy)</small>
-                                <strong>sbrnasha@gmail.com</strong>
-                            </span>
-                            <i class="ri-file-copy-line contact__card-action"></i>
-                        </button>
-
-                        <div class="contact__card contact__card--static">
-                            <i class="ri-map-pin-line"></i>
-                            <span>
-                                <small>Location</small>
-                                <strong>Kota Samarahan, Sarawak</strong>
-                            </span>
-                        </div>
-                    </div>
-
                     <!-- Opens the visitor's email app – no backend needed on GitHub Pages -->
-                    <form class="contact__form reveal" id="contact-form" novalidate>
+                    <form class="contact__form glass reveal" id="contact-form" novalidate>
                         <div class="field">
-                            <label for="cf-name">Your name</label>
-                            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+                            <label for="cf-name">Name</label>
+                            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
                         </div>
                         <div class="field">
-                            <label for="cf-email">Your email</label>
-                            <input id="cf-email" name="email" type="email" autocomplete="email" required>
+                            <label for="cf-email">Email</label>
+                            <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
                         </div>
                         <div class="field">
                             <label for="cf-message">Message</label>
-                            <textarea id="cf-message" name="message" rows="5" required></textarea>
+                            <textarea id="cf-message" name="message" rows="6" placeholder="Tell me about your project" required></textarea>
                         </div>
                         <p class="form__error" id="form-error" role="alert"></p>
-                        <button type="submit" class="button">Send message <i class="ri-send-plane-line"></i></button>
+                        <button type="submit" class="button button--block">Send message <i class="ri-send-plane-line"></i></button>
                         <p class="form__note">This opens your email app with the message filled in.</p>
                     </form>
-                </div>
 
-                <div id="map" class="contact__map reveal" aria-label="Map showing Kota Samarahan, Sarawak"></div>
+                    <div class="contact__info reveal">
+                        <button class="contact__card glass" id="copy-email" data-email="sbrnasha@gmail.com" aria-label="Copy email address sbrnasha@gmail.com">
+                            <span class="icon-tile icon-tile--violet"><i class="ri-mail-line"></i></span>
+                            <span class="contact__card-text">
+                                <small>Email (click to copy)</small>
+                                <strong>sbrnasha@gmail.com</strong>
+                            </span>
+                            <span class="round-arrow" aria-hidden="true"><i class="ri-file-copy-line"></i></span>
+                        </button>
+
+                        <a class="contact__card glass" href="https://www.google.com/maps/search/?api=1&query=Kota+Samarahan,+Sarawak" target="_blank" rel="noopener" aria-label="Open Kota Samarahan, Sarawak in Google Maps">
+                            <span class="icon-tile icon-tile--blue"><i class="ri-map-pin-line"></i></span>
+                            <span class="contact__card-text">
+                                <small>Location</small>
+                                <strong>Kota Samarahan, Sarawak</strong>
+                            </span>
+                            <span class="round-arrow" aria-hidden="true"><i class="ri-arrow-right-up-line"></i></span>
+                        </a>
+
+                        <div class="contact__social glass">
+                            <p>Find me online</p>
+                            <div class="home__social">
+                                <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-line"></i></a>
+                                <a href="mailto:sbrnasha@gmail.com" aria-label="Email"><i class="ri-mail-line"></i></a>
+                                <!-- TODO: put your LinkedIn profile URL here -->
+                                <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
-        <div class="container footer__container">
-            <a href="#home" class="nav__logo">Sabrina<span>.</span></a>
-            <ul class="footer__links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <p class="footer__copy">&copy; <span id="year">2026</span> Sabrina Asha. All rights reserved.</p>
+        <div class="container">
+            <div class="footer__container glass">
+                <a href="#home" class="nav__logo">Sabrina<span>.</span></a>
+                <ul class="footer__links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <p class="footer__copy">&copy; <span id="year">2026</span> Sabrina Asha. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -402,14 +491,13 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Certificate preview">
         <button class="lightbox__close" id="lightbox-close" aria-label="Close"><i class="ri-close-line"></i></button>
         <img src="" alt="" id="lightbox-img">
     </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script async src="https://www.instagram.com/embed.js"></script>
     <script src="js/main.js"></script>
 </body>

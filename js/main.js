@@ -57,7 +57,7 @@ onScroll();
 
 /* ---------- Typing effect ---------- */
 const typedEl = document.getElementById('typed');
-const roles = ['Information Systems', 'Data Engineering', 'Web Development', 'Video Editing'];
+const roles = ['Information System', 'Web Development', 'System Development', 'App Development', 'Video Editing'];
 
 if (typedEl && !prefersReducedMotion) {
     let roleIndex = 0;
@@ -90,25 +90,6 @@ if (typedEl && !prefersReducedMotion) {
     }
 
     setTimeout(typeLoop, 2200);
-}
-
-/* ---------- Viewfinder timecode (HH:MM:SS:FF at 25fps) ---------- */
-const timecodeEl = document.getElementById('timecode');
-if (timecodeEl) {
-    const start = performance.now();
-    const pad = n => String(n).padStart(2, '0');
-
-    function tick() {
-        const totalFrames = Math.floor(((performance.now() - start) / 1000) * 25);
-        const ff = totalFrames % 25;
-        const totalSeconds = Math.floor(totalFrames / 25);
-        const ss = totalSeconds % 60;
-        const mm = Math.floor(totalSeconds / 60) % 60;
-        const hh = Math.floor(totalSeconds / 3600);
-        timecodeEl.textContent = `${pad(hh)}:${pad(mm)}:${pad(ss)}:${pad(ff)}`;
-        if (!prefersReducedMotion) requestAnimationFrame(tick);
-    }
-    tick();
 }
 
 /* ---------- Scroll reveal ---------- */
@@ -152,9 +133,75 @@ if (cursor && finePointer) {
     follow();
 
     document.addEventListener('mouseover', e => {
-        cursor.classList.toggle('is-hover', !!e.target.closest('a, button, .chip, input, textarea'));
+        cursor.classList.toggle('is-hover', !!e.target.closest('a, button, .skill, input, textarea'));
     });
 }
+
+/* ---------- Projects ("View My Work") slider ---------- */
+function initWorkSwiper() {
+    const el = document.querySelector('.work__swiper');
+    const dotsWrap = document.getElementById('work-pagination');
+    if (!el || typeof Swiper === 'undefined') return;
+
+    const wrapper = el.querySelector('.swiper-wrapper');
+    const originals = Array.from(wrapper.children);
+    const count = originals.length;
+
+    // Loop mode needs more slides than are on screen, so repeat the
+    // projects (hidden from screen readers) until there are at least 6.
+    let copies = 0;
+    while (wrapper.children.length < 6) {
+        originals.forEach(slide => {
+            const clone = slide.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            clone.querySelectorAll('a, button').forEach(a => a.setAttribute('tabindex', '-1'));
+            wrapper.appendChild(clone);
+        });
+        if (++copies > 6) break;
+    }
+
+    // One dot per real project
+    const dots = originals.map((slide, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'work__dot';
+        const title = slide.querySelector('.work__title');
+        dot.setAttribute('aria-label', 'Show project ' + (i + 1) + (title ? ': ' + title.textContent : ''));
+        dotsWrap.appendChild(dot);
+        return dot;
+    });
+
+    const swiper = new Swiper(el, {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        grabCursor: true,
+        speed: prefersReducedMotion ? 0 : 600,
+        keyboard: { enabled: true, onlyInViewport: true },
+        a11y: { enabled: true },
+        breakpoints: {
+            640: { slidesPerView: 2, spaceBetween: 24, centeredSlides: false },
+            1025: { slidesPerView: 3, spaceBetween: 28, centeredSlides: true }
+        }
+    });
+
+    function updateDots() {
+        const current = swiper.realIndex % count;
+        dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === current)));
+    }
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+        // jump to the nearest copy of that project
+        const real = swiper.realIndex;
+        const target = real - (real % count) + i;
+        swiper.slideToLoop(target);
+    }));
+
+    swiper.on('slideChange', updateDots);
+    updateDots();
+}
+
+initWorkSwiper();
 
 /* ---------- Certifications slider ---------- */
 if (typeof Swiper !== 'undefined') {
@@ -335,43 +382,6 @@ if (form) {
         window.location.href = `mailto:sbrnasha@gmail.com?subject=${subject}&body=${body}`;
         showToast('Opening your email app…');
     });
-}
-
-/* ---------- Map (loads when scrolled near) ---------- */
-function initMap() {
-    const mapDiv = document.getElementById('map');
-    if (!mapDiv || typeof L === 'undefined' || mapDiv.dataset.ready) return;
-    mapDiv.dataset.ready = 'true';
-
-    const lat = 1.4641605034098844;
-    const lng = 110.43020760626976;
-
-    const map = L.map('map', { scrollWheelZoom: false }).setView([lat, lng], 13);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        maxZoom: 19
-    }).addTo(map);
-
-    L.circleMarker([lat, lng], {
-        radius: 10,
-        color: '#e294d6',
-        weight: 3,
-        fillColor: '#e294d6',
-        fillOpacity: 0.35
-    }).addTo(map).bindPopup('Kota Samarahan, Sarawak');
-}
-
-const mapEl = document.getElementById('map');
-if (mapEl && 'IntersectionObserver' in window) {
-    const mapObserver = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-            initMap();
-            mapObserver.disconnect();
-        }
-    }, { rootMargin: '300px' });
-    mapObserver.observe(mapEl);
-} else {
-    initMap();
 }
 
 /* ---------- Footer year ---------- */
