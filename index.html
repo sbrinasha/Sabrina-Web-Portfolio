@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sabrina Asha – Information Systems undergraduate at UNIMAS working in web development, system development, app development and video editing.">
-    <meta name="theme-color" content="#EEF0FA">
+    <meta name="theme-color" content="#2A0A0E">
     <title>Sabrina Asha | Portfolio</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
@@ -24,15 +24,14 @@
 </head>
 
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-
-    <!-- Background glow blobs -->
-    <div class="bg-blobs" aria-hidden="true">
-        <span class="blob blob--1"></span>
-        <span class="blob blob--2"></span>
-        <span class="blob blob--3"></span>
-        <span class="blob blob--4"></span>
+    <!-- Fixed glowing background (gives the glass something to blur) -->
+    <div class="bg-glow" aria-hidden="true">
+        <span class="bg-glow__orb--1"></span>
+        <span class="bg-glow__orb--2"></span>
+        <span class="bg-glow__orb--3"></span>
     </div>
+
+    <a href="#main" class="skip-link">Skip to content</a>
 
     <!-- Scroll progress bar -->
     <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
@@ -78,6 +77,7 @@
     <main id="main">
         <!-- ================= HOME ================= -->
         <section class="home" id="home">
+
             <div class="home__container container">
                 <div class="home__data">
                     <p class="home__greeting load-in" style="--d:0">
@@ -87,7 +87,7 @@
                     <h1 class="home__title load-in" style="--d:1">
                         Working in
                         <span class="home__typed-line">
-                            <span class="home__typed gradient-text" id="typed">Information System</span><span class="home__caret" aria-hidden="true"></span>
+                            <span class="home__typed accent" id="typed">Information System</span><span class="home__caret" aria-hidden="true"></span>
                         </span>
                     </h1>
                     <!-- Screen readers get the full list instead of the animation -->
@@ -100,7 +100,7 @@
                     <div class="home__buttons load-in" style="--d:3">
                         <!-- TODO: add your CV to the repo (e.g. files/Sabrina-Asha-CV.pdf) and put its path in href -->
                         <a href="#" class="button" download>Download CV <i class="ri-download-2-line"></i></a>
-                        <a href="#contact" class="button button--glass">Contact me <i class="ri-arrow-right-up-line"></i></a>
+                        <a href="#contact" class="button button--outline">Contact me <i class="ri-arrow-right-up-line"></i></a>
                     </div>
 
                     <div class="home__social load-in" style="--d:4">
@@ -114,29 +114,24 @@
                 <!-- Photo card -->
                 <div class="home__visual load-in" style="--d:3">
                     <figure class="home__portrait">
-                        <!-- Outer frosted glass ring -->
+                        <!-- Outer ring -->
                         <span class="home__ring" aria-hidden="true"></span>
 
-                        <!-- Glass arch frame: keeps its gradient even if the image fails to load -->
+                        <!-- Arch frame: keeps its gradient even if the image fails to load -->
                         <div class="home__arch">
-                            <img src="images/sabrina-profile.jpeg" alt="Portrait of Sabrina Asha" class="home__photo" width="927" height="1147">
+                            <img src="images/sabrina-hero.jpeg" alt="Portrait of Sabrina Asha" class="home__photo" width="1169" height="1235" loading="eager" fetchpriority="high">
                         </div>
 
-                        <!-- Small floating glass chip -->
+                        <!-- Small floating sparkle chip -->
                         <span class="home__chip" aria-hidden="true"><i class="ri-sparkling-2-fill"></i></span>
 
                         <!-- Rotating circular text badge -->
                         <div class="home__badge" aria-hidden="true">
                             <svg viewBox="0 0 100 100" class="home__badge-text">
                                 <defs>
-                                    <linearGradient id="badge-gradient" x1="0" y1="0" x2="1" y2="1">
-                                        <stop offset="0%" stop-color="#8B5CF6"></stop>
-                                        <stop offset="50%" stop-color="#6366F1"></stop>
-                                        <stop offset="100%" stop-color="#60A5FA"></stop>
-                                    </linearGradient>
                                     <path id="badge-circle" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"></path>
                                 </defs>
-                                <text fill="url(#badge-gradient)">
+                                <text>
                                     <textPath href="#badge-circle">SABRINA ASHA • DEVELOPER • EDITOR •</textPath>
                                 </text>
                             </svg>
@@ -157,9 +152,9 @@
                 <div class="about__container glass reveal">
                     <h2 class="about__statement">
                         <span class="about__label">About Me:</span>
-                        Young <span class="gradient-text">freelancer</span> who enjoys exploring
-                        <span class="gradient-text">tech solutions</span>, passionate about my work,
-                        disciplined, and <span class="gradient-text">dedicated</span>.
+                        Young <span class="accent">freelancer</span> who enjoys exploring
+                        <span class="accent">tech solutions</span>, passionate about my work,
+                        disciplined, and <span class="accent">dedicated</span>.
                     </h2>
 
                     <div class="about__side">
@@ -170,28 +165,28 @@
 
                 <dl class="about__info glass reveal">
                     <div class="about__item">
-                        <span class="icon-tile icon-tile--violet"><i class="ri-user-3-line"></i></span>
+                        <span class="icon-tile"><i class="ri-user-3-line"></i></span>
                         <div>
                             <dt>Name</dt>
                             <dd>Sabrina Asha A/P Gopinathan</dd>
                         </div>
                     </div>
                     <div class="about__item">
-                        <span class="icon-tile icon-tile--blue"><i class="ri-mail-line"></i></span>
+                        <span class="icon-tile"><i class="ri-mail-line"></i></span>
                         <div>
                             <dt>Email</dt>
                             <dd><a href="mailto:sbrnasha@gmail.com">sbrnasha@gmail.com</a></dd>
                         </div>
                     </div>
                     <div class="about__item">
-                        <span class="icon-tile icon-tile--pink"><i class="ri-map-pin-line"></i></span>
+                        <span class="icon-tile"><i class="ri-map-pin-line"></i></span>
                         <div>
                             <dt>Location</dt>
                             <dd>Sarawak, Malaysia</dd>
                         </div>
                     </div>
                     <div class="about__item">
-                        <span class="icon-tile icon-tile--mint"><i class="ri-graduation-cap-line"></i></span>
+                        <span class="icon-tile"><i class="ri-graduation-cap-line"></i></span>
                         <div>
                             <dt>University</dt>
                             <dd>UNIMAS (FCSIT)</dd>
@@ -204,7 +199,7 @@
         <!-- ================= WORK / PROJECTS ================= -->
         <section class="section" id="work">
             <div class="container">
-                <h2 class="section__title section__title--center reveal">View My <span class="gradient-text">Work</span></h2>
+                <h2 class="section__title section__title--center reveal">View My <span class="accent">Work</span></h2>
 
                 <div class="swiper work__swiper reveal">
                     <div class="swiper-wrapper">
@@ -254,7 +249,7 @@
                 </div>
 
                 <div class="work__more reveal">
-                    <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" class="button button--glass">
+                    <a href="https://github.com/sbrinasha" target="_blank" rel="noopener" class="button button--outline">
                         <i class="ri-github-line"></i> View all projects
                     </a>
                 </div>
@@ -264,7 +259,7 @@
         <!-- ================= EXPERIENCE ================= -->
         <section class="section" id="experience">
             <div class="container">
-                <h2 class="section__title section__title--center reveal">Professional <span class="gradient-text">Experience</span></h2>
+                <h2 class="section__title section__title--center reveal">Professional <span class="accent">Experience</span></h2>
 
                 <ol class="timeline">
                     <li class="timeline__item reveal">
@@ -299,7 +294,7 @@
         <!-- ================= SKILLS ================= -->
         <section class="section" id="skills">
             <div class="container">
-                <h2 class="section__title section__title--center reveal">My <span class="gradient-text">Skills</span></h2>
+                <h2 class="section__title section__title--center reveal">My <span class="accent">Skills</span></h2>
                 <p class="section__lead section__lead--center reveal">
                     My skills are those I've learned and developed over the years. By studying, focusing,
                     and being consistent in what I love most.
@@ -308,7 +303,7 @@
                 <div class="skills__rows">
                     <div class="skills__row glass reveal">
                         <h3 class="skills__category">
-                            <span class="icon-tile icon-tile--violet"><i class="ri-layout-masonry-line"></i></span>
+                            <span class="icon-tile"><i class="ri-layout-masonry-line"></i></span>
                             Frontend
                         </h3>
                         <ul class="skills__list">
@@ -324,7 +319,7 @@
 
                     <div class="skills__row glass reveal">
                         <h3 class="skills__category">
-                            <span class="icon-tile icon-tile--blue"><i class="ri-server-line"></i></span>
+                            <span class="icon-tile"><i class="ri-server-line"></i></span>
                             Backend
                         </h3>
                         <ul class="skills__list">
@@ -339,7 +334,7 @@
 
                     <div class="skills__row glass reveal">
                         <h3 class="skills__category">
-                            <span class="icon-tile icon-tile--pink"><i class="ri-magic-line"></i></span>
+                            <span class="icon-tile"><i class="ri-magic-line"></i></span>
                             Others
                         </h3>
                         <ul class="skills__list">
@@ -423,7 +418,7 @@
         <!-- ================= CONTACT ================= -->
         <section class="section" id="contact">
             <div class="container">
-                <h2 class="section__title section__title--center reveal">Contact <span class="gradient-text">Me</span></h2>
+                <h2 class="section__title section__title--center reveal">Contact <span class="accent">Me</span></h2>
 
                 <div class="contact__container">
                     <!-- Opens the visitor's email app – no backend needed on GitHub Pages -->
@@ -447,7 +442,7 @@
 
                     <div class="contact__info reveal">
                         <button class="contact__card glass" id="copy-email" data-email="sbrnasha@gmail.com" aria-label="Copy email address sbrnasha@gmail.com">
-                            <span class="icon-tile icon-tile--violet"><i class="ri-mail-line"></i></span>
+                            <span class="icon-tile"><i class="ri-mail-line"></i></span>
                             <span class="contact__card-text">
                                 <small>Email (click to copy)</small>
                                 <strong>sbrnasha@gmail.com</strong>
@@ -456,7 +451,7 @@
                         </button>
 
                         <a class="contact__card glass" href="https://www.google.com/maps/search/?api=1&query=Kota+Samarahan,+Sarawak" target="_blank" rel="noopener" aria-label="Open Kota Samarahan, Sarawak in Google Maps">
-                            <span class="icon-tile icon-tile--blue"><i class="ri-map-pin-line"></i></span>
+                            <span class="icon-tile"><i class="ri-map-pin-line"></i></span>
                             <span class="contact__card-text">
                                 <small>Location</small>
                                 <strong>Kota Samarahan, Sarawak</strong>
@@ -482,7 +477,7 @@
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__container glass">
+            <div class="footer__container">
                 <a href="#home" class="nav__logo">Sabrina<span>.</span></a>
                 <ul class="footer__links">
                     <li><a href="#about">About</a></li>

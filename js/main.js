@@ -272,7 +272,7 @@ function renderReels(reels) {
         const url = escapeHtml(reel.url);
         return `
             <div class="swiper-slide">
-                <div class="reel">
+                <div class="reel glass">
                     <blockquote class="instagram-media" data-instgrm-permalink="${url}" data-instgrm-version="14">
                         <div class="reel__placeholder">
                             <i class="ri-instagram-line"></i>
