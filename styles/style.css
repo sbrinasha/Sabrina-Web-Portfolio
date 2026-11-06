@@ -168,8 +168,8 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
     opacity: .55;
 }
 
-.blob--1 { width: 520px; height: 520px; top: -160px; left: -140px; background: #C4B5FD; }
-.blob--2 { width: 460px; height: 460px; top: 25%; right: -160px; background: #A5B4FC; }
+.blob--1 { width: 540px; height: 540px; top: 8%; right: 4%; background: #C4B5FD; opacity: .7; }
+.blob--2 { width: 440px; height: 440px; top: -160px; left: -160px; background: #A5B4FC; opacity: .45; }
 .blob--3 { width: 420px; height: 420px; bottom: -140px; left: 20%; background: #BAE6FD; }
 .blob--4 { width: 300px; height: 300px; top: 55%; left: -100px; background: #F5D0FE; opacity: .45; }
 
@@ -487,21 +487,28 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
 /* ---------- Home ---------- */
 .home {
     position: relative;
-    padding-top: calc(var(--header-h) + clamp(2.5rem, 7vw, 4.5rem));
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-top: calc(var(--header-h) + 2rem);
+    padding-bottom: 5.5rem;
 }
 
+/* two columns: text left, photo right */
 .home__container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 3.5rem;
     align-items: center;
-    text-align: center;
 }
 
 .home__data {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 820px;
+    align-items: flex-start;
+    text-align: left;
+    min-width: 0;
 }
 
 .home__greeting {
@@ -529,9 +536,12 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
 }
 
 .home__title {
-    font-size: var(--fs-hero);
+    /* sized so "System Development" fits on one line in the left column */
+    font-size: clamp(2.4rem, 4.6vw, 3.6rem);
     line-height: 1.08;
     letter-spacing: -.035em;
+    /* fixed height (two lines) so typing never shifts the layout */
+    min-height: 2.3em;
 }
 
 .home__typed-line {
@@ -567,14 +577,14 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
 .home__buttons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: .9rem;
     margin-top: 2rem;
 }
 
 .home__social {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: .65rem;
     margin-top: 1.5rem;
 }
@@ -603,8 +613,8 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
 
 /* portrait: headshot clipped inside a frosted glass arch */
 .home__visual {
-    margin-top: clamp(2.75rem, 7vw, 4rem);
     width: 100%;
+    min-width: 0;
     display: flex;
     justify-content: center;
 }
@@ -614,15 +624,15 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
     --arch-h: 420px;
     position: relative;
     isolation: isolate;
-    /* room for the 12px glass ring on every side */
+    /* shrinks with its column; leaves room for the 12px glass ring */
+    width: min(var(--arch-w), calc(100% - 24px));
     margin: 12px;
 }
 
 .home__arch {
     position: relative;
-    width: var(--arch-w);
+    width: 100%;
     height: var(--arch-h);
-    max-width: calc(100vw - 2 * var(--gutter) - 24px);
     overflow: hidden;
     isolation: isolate;
     border-radius: 40% 40% 28px 28px / 32% 32% 28px 28px;
@@ -727,11 +737,15 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .home__scroll {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.5rem;
     display: grid;
     place-items: center;
     width: 2.75rem;
     height: 2.75rem;
-    margin: 2.5rem auto 0;
+    margin-inline: auto;
     border-radius: 50%;
     background: rgba(255, 255, 255, .6);
     border: 1px solid var(--glass-border);
@@ -1498,22 +1512,40 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
 
     .contact__container { grid-template-columns: 1fr; }
 
+    .home__container { gap: 2rem; }
+    .home__title { font-size: clamp(2rem, 4.6vw, 2.75rem); }
     .home__portrait { --arch-w: 290px; --arch-h: 360px; }
     .home__badge { width: 98px; height: 98px; right: -26px; bottom: -20px; }
     .home__chip { left: -20px; }
+}
+
+/* phones: stack, photo on top, text centred */
+@media (max-width: 760px) {
+    .home { min-height: auto; padding-bottom: 0; }
+
+    .home__container { grid-template-columns: 1fr; gap: 2.5rem; }
+    .home__visual { order: -1; }
+
+    .home__data { align-items: center; text-align: center; }
+    .home__title { font-size: clamp(2.1rem, 7vw, 2.9rem); }
+    .home__buttons,
+    .home__social { justify-content: center; }
+
+    .home__portrait { --arch-w: 230px; --arch-h: 290px; }
+    .home__badge { width: 80px; height: 80px; right: -18px; bottom: -16px; }
+    .home__badge-icon { width: 1.9rem; height: 1.9rem; font-size: 1rem; }
+    .home__chip { width: 2.6rem; height: 2.6rem; font-size: 1.1rem; left: -14px; }
+
+    .home__scroll { display: none; }
 }
 
 /* phone */
 @media (max-width: 480px) {
     :root { --header-h: 4.25rem; }
 
-    .home__buttons { flex-direction: column; width: 100%; max-width: 300px; }
-    .home__buttons .button { width: 100%; }
-
-    .home__portrait { --arch-w: 230px; --arch-h: 290px; }
-    .home__badge { width: 80px; height: 80px; right: -18px; bottom: -16px; }
-    .home__badge-icon { width: 1.9rem; height: 1.9rem; font-size: 1rem; }
-    .home__chip { width: 2.6rem; height: 2.6rem; font-size: 1.1rem; left: -14px; }
+    /* keeps the two hero buttons side by side down to 340px */
+    .home__buttons { gap: .6rem; }
+    .home__buttons .button { padding: .9rem 1.15rem; font-size: .9rem; }
 
     .about__info { grid-template-columns: 1fr; padding: 1.1rem; }
 
@@ -1536,7 +1568,9 @@ html { scrollbar-color: #B9B3E6 transparent; scrollbar-width: thin; }
     .nav__logo { font-size: 1.25rem; }
     .home__greeting { font-size: .85rem; }
     .home__title { font-size: 2rem; }
-    .home__badge { width: 70px; height: 70px; right: -10px; }
+    .home__buttons { flex-direction: column; width: 100%; }
+    .home__buttons .button { width: 100%; }
+    .home__badge { width: 70px; height: 70px; right: -10px; bottom: -12px; }
     .home__badge-text text { font-size: 10px; letter-spacing: 1px; }
 
     .about__statement { font-size: 1.3rem; }
